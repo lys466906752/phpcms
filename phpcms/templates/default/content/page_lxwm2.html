@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{$SEO['title']}-爱亲母婴</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+    <link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css"/>
+    <link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css"/>
+    <link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css"/>
+    <link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$CAT['url']); ?>">
+    {if $catid==33}
+    <script language="javascript">
+        window.location = "http://jiameng.aiqin.com/condition/#gg";
+    </script>
+    {/if}
+
+    <script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+    <script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+    <script type="text/javascript" src="{JS_PATH}fontscroll.js"></script>
+    <script type="text/javascript" src="{JS_PATH}jquery.rollGallery_yeso.js"></script>
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+    <![endif]-->
+    {if $catid==69}
+    <link href="{CSS_PATH}carousel_a.css" rel="stylesheet" type="text/css"/>
+    {else}
+    <link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css"/>
+    {/if}
+    <script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+    <script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+    {if $catid==68 or $catid==70 or $catid==45}
+    <script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+    {/if}
+    {if $catid==68 or $catid==70}
+    <script src="{JS_PATH}swfobject.js" type="text/javascript"></script>
+    {/if}
+</head>
+<body>
+{template "content","header"}
+	<div class="banner">
+		{if $catid==31}
+		  <div id="galleryMedia"><div class="img"><img src="{IMG_PATH}zs_new_ban.jpg" alt="{$CATEGORYS[$catid][catname]}" /></div></div>
+		{else}
+		  <div id="galleryMedia"><div class="img"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></div></div>
+		{/if}
+	</div>
+<!--
+<div class="out_menu">
+<div class="menu">
+    <ul>
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+        {loop subcat($pid) $s}
+        {if $s[catid]==20}
+        <li class="{if $s[catid]==$cid}curn{/if}"><a href="/ry_pp">{$s[catname]}</a></li>
+        {elseif $s[catid]!=161 &&  $s[catid]!=36 &&  $s[catid]!=23}
+        <li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+        {/if}
+        {/loop}
+        {/pc}
+    </ul>
+</div>
+</div>
+-->
+<div class="main">
+    <div class="lanmu"><h1 class="zh">{$CATEGORYS[$catid][catname]}</h1><span class="en"></span><span class="dh"><a
+            href="{siteurl($siteid)}">首页</a> &gt; {$CATEGORYS[$pid]['catname']}</span><img src="{IMG_PATH}npage/dot.jpg"
+                                                                                           style="width:990px"/></div>
+
+    <div class="content">
+
+        <div style="border-bottom: 1px dashed #b9b9b9;font-size: 17px;padding: 6px 0px;margin-top: 20px;">北京爱亲投资股份有限公司
+        </div>
+        <div style="width: 490px;float: left;border-right: 1px solid #ddd">
+            <div style=" margin-top:25px; clear:both; overflow:hidden; width: 490px;float: left">
+                <div style="width: 100%">
+                    <span style="font-size:14px; font-weight:bold; color:#3e3a39;">北京总部</span><br/>
+                    地址：北京市大兴区金星西路6号兴创大厦20层<br/>
+                    北京总公司： 400-139-8866<br/>
+                </div>
+                <div style="float:left;">
+                    <!--<iframe src="http://www.aiqin.cn/index.php?m=content&c=index&a=lists&catid=246" frameBorder=0
+                            marginwidth=0 marginheight=0 scrolling=no style="width:304px;height:154px;" scrolling=no
+                            ALLOWTRANSPARENCY="true"></iframe>-->
+                </div>
+            </div>
+            <div style=" margin-top:25px; clear:both; overflow:hidden; width: 490px ;float: left">
+                <div style="width: 100%">
+                    <span style="font-size:14px; font-weight:bold; color:#3e3a39;">广州地区</span><br/>
+                    地址：广州市海珠区新港东路1220-1228号万胜广场C塔1101室<br/>
+                    广州分公司： 400-139-8855<br/>
+                </div>
+
+                <div style="float:left;">
+                    <!--<iframe src="http://www.aiqin.cn/index.php?m=content&c=index&a=lists&catid=245" frameBorder=0
+                            marginwidth=0 marginheight=0 scrolling=no style="width:304px;height:154px;" scrolling=no
+                            ALLOWTRANSPARENCY="true"></iframe>-->
+                </div>
+            </div>
+			<div style=" margin-top:25px; clear:both; overflow:hidden; width: 490px ;float: left">
+                <div style="width: 100%">
+                    <span style="font-size:14px; font-weight:bold; color:#3e3a39;">武汉地区</span><br/>
+                    地址：武汉市武昌区岳家嘴山河企业大厦14层<br/>
+                    武汉分公司： 400-139-8805<br/>
+                </div>
+
+                <div style="float:left;">
+                    <!--<iframe src="http://www.aiqin.cn/index.php?m=content&c=index&a=lists&catid=245" frameBorder=0
+                            marginwidth=0 marginheight=0 scrolling=no style="width:304px;height:154px;" scrolling=no
+                            ALLOWTRANSPARENCY="true"></iframe>-->
+                </div>
+            </div>
+			<div style=" margin-top:25px; clear:both; overflow:hidden; width: 490px ;float: left">
+            <span style="font-size:14px; font-weight:bold; color:#3e3a39;">全国客服电话</span><br/>
+            全国客服电话：400-139-8800
+			</div>
+        </div>
+        <div style="width: 495px;float: left">
+            <div style=" margin-top:25px; clear:both; overflow:hidden; width: 490px;float: left">
+            </div>
+            <div style="width: 100%">
+                <span style="font-size:14px; font-weight:bold; color:#3e3a39;">成都地区</span><br/>
+                地址：四川省成都市锦江区东大街紫东楼街段35号明宇金融广场23楼2302<br/>
+                成都分公司： 400-139-8811
+            </div>
+
+            <div style="float:left;">
+                    <!--<iframe src="http://www.aiqin.cn/index.php?m=content&c=index&a=lists&catid=244" frameBorder=0
+                            marginwidth=0 marginheight=0 scrolling=no style="width:304px;height:154px;" scrolling=no
+                            ALLOWTRANSPARENCY="true"></iframe>-->
+            </div>
+            <div style=" margin-top:25px; clear:both; overflow:hidden; width: 490px;float: left">
+                <div style="width: 100%">
+                    <span style="font-size:14px; font-weight:bold; color:#3e3a39;">西安地区</span><br/>
+                    地址：西安市未央区凤城二路经发大厦506室<br/>
+                    西安爱亲分公司：400-139-8810
+                </div>
+
+                <div style="float:left;">
+                    <!--<iframe src="http://www.aiqin.cn/gsdtgl/xafgs/" frameBorder=0 marginwidth=0 marginheight=0
+                            scrolling=no style="width:304px;height:154px;" scrolling=no
+                            ALLOWTRANSPARENCY="true"></iframe>-->
+                </div>
+            </div>
+            <div style=" margin-top:25px; clear:both; overflow:hidden; width: 490px;float: left">
+                <div style="width: 100%">
+                    <span style="font-size:14px; font-weight:bold; color:#3e3a39;">杭州地区</span><br>
+                    地址：杭州市滨江区西兴街道江陵路1760号2205、2206室<br>杭州爱亲分公司：400-139-8803
+                </div>
+
+                <div style="float:left;">
+                    <!--<iframe src="http://www.aiqin.cn/gsdtgl/hzfgs/" marginwidth="0" marginheight="0" scrolling="no"
+                            style="width:304px;height:154px;" allowtransparency="true" frameborder="0"></iframe>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="text-align: center"><img alt="" src="{IMG_PATH}npage/20160107043155819.jpg"/></div>
+</div>
+{if $catid==68 or $catid==70}
+<script type="text/javascript">
+    function DY_scroll(wraper, prev, next, img, speed, or) {
+        var wraper = $(wraper);
+        var prev = $(prev);
+        var next = $(next);
+        var img = $(img).find('ul');
+        var w = img.find('li').outerWidth(true);
+        var s = speed;
+        next.click(function () {
+            img.animate({'margin-left': -w}, function () {
+                img.find('li').eq(0).appendTo(img);
+                img.css({'margin-left': 0});
+            });
+        });
+        prev.click(function () {
+            img.find('li:last').prependTo(img);
+            img.css({'margin-left': -w});
+            img.animate({'margin-left': 0});
+        });
+        if (or == true) {
+            ad = setInterval(function () {
+                next.click();
+            }, s * 1000);
+            wraper.hover(function () {
+                clearInterval(ad);
+            }, function () {
+                ad = setInterval(function () {
+                    next.click();
+                }, s * 1000);
+            });
+
+        }
+    }
+    DY_scroll('.img-scroll', '.prev', '.next', '.img-list', 3, false);// true为自动播放，不加此参数或false就默认不自动
+</script>
+{elseif $catid==69}
+<script type="text/javascript">
+    $(function () {
+        $(".jCarouselLite").jCarouselLite({
+            start: 0,
+            btnNext: ".carousel .next",
+            btnPrev: ".carousel .prev",
+            auto: 0,
+            speed: 200,
+            scroll: 1,
+            visible: 4,
+            vertical: true,
+            mouseWheel: true,
+            circular: false
+        })
+        $('.jCarouselLite a').click(function () {
+            img = $(this).attr('rel');
+            $("#bigimg").attr("src", img);
+            txt = $(this).attr('title');
+            $(".change_div h3 a").html(txt);
+        })
+    });
+</script>
+<script type="text/javascript">
+    function bigImg(img) {
+        $("#bigimg").attr("src", img);
+    }
+</script>
+{/if}
+<div class="clearfix"></div>
+{template "content","footer"}
+<script type="text/javascript">
+    $(function () {
+        $(".protitle").click(function () {
+            $(this).next(".propic").toggle();
+        });
+    });
+</script>
+</body>
+</html>

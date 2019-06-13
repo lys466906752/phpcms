@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$CAT['url']); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+{if $catid==69}
+<link href="{CSS_PATH}carousel_a.css" rel="stylesheet" type="text/css" />
+{else}
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+{/if}
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+{if $catid==68 or $catid==70 or $catid==45}
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+{/if}
+{if $catid==68 or $catid==70}
+<script src="{JS_PATH}swfobject.js" type="text/javascript"></script>
+{/if}
+<script type="text/javascript" src="{JS_PATH}jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+{template "content","header"}
+	<div class="banner">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+		{if $catid==31}
+		  <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}zs_new_ban.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{else}
+		  <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{/if}
+	</div>
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			{if $s[catid]==20}
+			<li class="{if $s[catid]==$cid}curn{/if}"><a href="/ry_pp">{$s[catname]}</a></li>
+			{elseif $s[catid]!=161 &&  $s[catid]!=36 && $s[catid]!=55 && $s[catid]!=58}
+			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/if}
+			{/loop}
+			{/pc}
+		</ul>
+	</div>
+    </div>
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu"><h1 class="zh">{$CATEGORYS[$catid][catname]}</h1><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> &gt; {$CATEGORYS[$pid]['catname']}</span></div>
+		<div class="content">
+        	<div class="danye">
+            <style type="text/css">
+                .hzbz_ban .hd {overflow: auto;}
+                .hzbz_ban .hd li {width: 188px; height:124px; }
+            }
+            </style>
+			<!--新的加盟政策开始-->
+				<div class="hzbz_con">
+					<!--banner开始-->
+
+
+        <style type="text/css">
+        /* css 重置 */
+        *{margin:0; padding:0; list-style:none; }
+        body{ background:#fff; font:normal 12px/22px 宋体;  }
+        img{ border:0;  }
+        a{ text-decoration:none; color:#333;  }
+
+        /* 本例子css */
+        .picScroll-top{ margin:0 auto;  width:990px;  overflow:hidden; position:relative;height: 400px;position: relative; }
+/*      .picScroll-top .hd{ overflow:hidden;  height:80px; background:#f4f4f4; padding:0 10px; position: absolute; top:0; }
+*/      .picScroll-top .hd .prev,.picScroll-top .hd .next{ display:block;  width:9px; height:5px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+             cursor:pointer; background:url("images/arrow.png") 0 -100px no-repeat;}
+        .picScroll-top .hd .next{ position: absolute;left: 5px; width: 17px;height: 30px;background: url(http://www.aiqin.com/statics/images/hzbz_lr.png) no-repeat 0px -88px;top:32%;}
+        .picScroll-top .hd .prev{ position: absolute;right: 240px; width: 17px;height: 30px;background: url(http://www.aiqin.com/statics/images/hzbz_lr.png) no-repeat -17px -88px;top:32%;}
+        .picScroll-top .hd .prevStop{ background-position:-60px -100px;  }
+        .picScroll-top .hd .nextStop{ background-position:-60px -140px;  }
+        .picScroll-top .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px; zoom:1; }
+        .picScroll-top .hd ul li{ float:left;  width:9px; height:9px; overflow:hidden; margin-right:5px; text-indent:-999px; cursor:pointer; background:url("images/icoCircle.gif") 0 -9px no-repeat; }
+        .picScroll-top .hd ul li.on{ background-position:0 0; }
+        .picScroll-top .bd{float: right;width: 188px;height: 124px; }
+        .picScroll-top .bd ul{ overflow:hidden; zoom:1; }
+        .picScroll-top .bd ul li{ text-align:center; zoom:1; margin: 8px 0 }
+        .picScroll-top .bd ul li .pic{ text-align:center; }
+        .picScroll-top .bd ul li .pic img{ width:188px; height:124px; display:block;}
+        .picScroll-top .bd ul li .pic a:hover img{ border-color:#999;  }
+        .picScroll-top .bd ul li .title{ line-height:24px; }
+        .picScroll-top .td {width: 640px;height: 380px;margin-left: 40px;background: url(http://www.aiqin.com/statics/images/hzbz_banbg.png)no-repeat 100% 100%; }
+        .picScroll-top .td img {width: 600px;height:350px;margin-top:8px; }
+        .picScroll-top .td ul {width: 600px;margin: 0 auto}
+				.hzbz_zc th{
+					width: 80px;
+				}
+
+        </style>
+
+        <div class="picScroll-top">
+            <div class="hd">
+                <a class="next"></a>
+                <a class="prev"></a>
+            </div>
+            <div class="bd">
+                <ul class="picList">
+                    {pc:content  action="lists" catid="173" num="15" order="listorder ASC" return="info"}
+                    {loop $info $r}
+                         <li><div class="pic"><a href="javascript:;"><img src="{$r[thumb]}" alt="{$r[title]}" /></a></div></li>
+                    {/loop}
+                    {/pc}
+                    {pc:content  action="lists" catid="173" num="15" order="listorder ASC" return="info"}
+                    {loop $info $r}
+                         <li><div class="pic"><a href="javascript:;"><img src="{$r[thumb]}" alt="{$r[title]}" /></a></div></li>
+                    {/loop}
+                    {/pc}
+                </ul>
+            </div>
+
+            <div class="td">
+                <ul class="picList">
+                    {pc:content  action="lists" catid="173" num="15" order="listorder ASC" return="info"}
+                    {loop $info $r}
+                         <li><div class="pic"><a href="javascript:;"><img src="{$r[thumb]}" alt="{$r[title]}" /></a></div></li>
+                    {/loop}
+                    {/pc}
+                    {pc:content  action="lists" catid="173" num="15" order="listorder ASC" return="info"}
+                    {loop $info $r}
+                         <li><div class="pic"><a href="javascript:;"><img src="{$r[thumb]}" alt="{$r[title]}" /></a></div></li>
+                    {/loop}
+                    {/pc}
+                </ul>
+            </div>
+        </div>
+
+				<script type="text/javascript">
+         jQuery(".picScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"top",autoPlay:true,vis:3,trigger:"click"});
+         jQuery(".picScroll-top").slide({mainCell:".td ul",autoPage:true,effect:"fold",autoPlay:true,vis:3,trigger:"click"});
+				 $(document).ready(function(){
+						$(".prev,.next").hover(function(){
+								$(this).stop(true,false).fadeTo("show",0.9);
+						},function(){
+								$(this).stop(true,false).fadeTo("show",0.4);
+						});
+				})
+
+        </script>
+
+					<!--banner结束-->
+
+
+					<!--加盟政策开始-->
+				<div class="hzbz_zc" align="center">
+     <table style="width:100%;height:100%;color:#595757; font-family:'微软雅黑';font-size:1em; border:0px;">
+    <thead>
+        <tr style="background:#48C5E8;color:#fff">
+               <script>
+              var data='合作级别,门市专卖店,高级专卖店,豪华专卖店,爱亲生活馆,豪华生活馆,至尊生活馆,旗舰生活馆,爱亲亲子乐园,爱亲亲子王国'
+              for(var i = 0 ;i <data.split(',').length;i++){
+                document.write('<th>'+data.split(',')[i]+'</th>')
+              }
+            </script>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr style="background:#DFF1FC;">
+            <script>
+             var data='品牌权益金,9.98万(可返),15.98万(可返)(国际合作品牌补贴),23.98万(可返)(国际合作品牌补贴),28.98万(可返)(国际合作品牌补贴),38.98(可返)&nbsp;(国际合作品牌补贴),43.98万(可返)(国际合作品牌补贴),63.98万(可返)(国际合作品牌补贴),83.98万(可返)(国际合作品牌补贴),158.98万(可返)(国际合作品牌补贴)'
+              for(var i = 0 ;i <data.split(',').length;i++){
+                document.write('<td valign="top">'+data.split(',')[i]+'</th>')
+              }
+            </script>
+        </tr>
+        <tr style="background:#BFE5F9;">
+            <script>
+             var data='品牌保证金,1万元(可退回),1万元(可退回),1万元(可退回),1万元(可退回),1万元(可退回), 1万元(可退回),1万元(可退),1万元(可退回),1万元(可退回)'
+              for(var i = 0 ;i <data.split(',').length;i++){
+                document.write('<td>'+data.split(',')[i]+'</th>')
+              }
+            </script>
+        </tr>
+        <tr style="background:#DFF1FC;">
+            <script>
+              var data='装修保证金,5000元,5000元,5000元,5000元,5000元,5000元,5000元,5000元,5000元'
+              for(var i = 0 ;i <data.split(',').length;i++){
+                document.write('<td>'+data.split(',')[i]+'</th>')
+              }
+            </script>
+        </tr>
+        <tr style="background:#BFE5F9;">
+            <script>
+                var data='经营面积,70㎡以内,70-120㎡,120-200㎡,200-300㎡,300-400㎡, 400-500㎡,500-700㎡,700-1000㎡以上,1000㎡ 以上'
+                for(var i = 0 ;i <data.split(',').length;i++){
+                    document.write('<td>'+data.split(',')[i]+'</th>')
+                }
+            </script>
+        </tr>
+        <tr style="background:#DFF1FC;">
+            <script>
+                var data='品牌管理费(首年免),2000元,2000元,2000元,5000元,5000元,5000元,5000元,5000元,8000元'
+                for(var i = 0 ;i <data.split(',').length;i++){
+                    document.write('<td>'+data.split(',')[i]+'</th>')
+                }
+            </script>
+        </tr>
+        <tr style="background:#BFE5F9;">
+            <script>
+                var data ='赠送自主产品（市值),5万元,9万元,16万元,19万元,28万元,31万元,43万元,55万元,120万元'
+
+                for(var i = 0 ;i <data.split(',').length;i++){
+                    document.write('<td>'+data.split(',')[i]+'</th>')
+                }
+            </script>
+        </tr>
+        <tr style="background:#DFF1FC;">
+            <script>
+                var data='赠送仪器(市值）,5万元,7万元,8万元,10万元,11万元,13万元,21万元,29万元 ,39万元'
+                for(var i = 0 ;i <data.split(',').length;i++){
+                    document.write('<td>'+data.split(',')[i]+'</th>')
+                }
+            </script>
+        </tr>
+        <tr style="background:#BFE5F9;">
+            <script>
+                var data='赠送形象展柜,2组,4组,6组,8组,8组,10组,12组,14组,16组'
+
+                for(var i = 0 ;i <data.split(',').length;i++){
+                    document.write('<td>'+data.split(',')[i]+'</th>')
+                }
+            </script>
+        </tr>
+        <tr style="background:#DFF1FC;">
+            <td>赠送暴利项目</td>
+            <td>海外购<br>婴儿游泳<br>育婴师<br>宝宝理发<br>纪念品</td>
+            <td>海外购<br>婴儿游泳<br>育婴师<br>催乳师<br>宝宝理发<br>纪念品<br>亲子DIY</td>
+            <td>海外购<br>婴儿游泳<br>育婴师<br>催乳师<br>宝宝理发<br>纪念品<br>亲子DIY<br>儿童乐园<br>新零售项目</td><
+            <td>海外购<br>婴儿游泳<br>育婴师<br>催乳师<br>宝宝理发<br>纪念品<br>亲子DIY<br>儿童乐园<br>新零售项目</td><
+            <td>海外购<br>婴儿游泳<br>育婴师<br>催乳师<br>宝宝理发<br>纪念品<br>亲子DIY<br>儿童乐园<br>新零售项目</td><
+            <td><p>委派店长坐店</p>
+            <p>新零售项目组扶持</p></td>
+
+            <td><p>委派店长坐店</p>
+            <p>新零售项目组扶持</p></td>
+
+            <td><p>委派店长坐店</p>
+            <p>新零售项目组扶持</p>
+            <p>A类门店项目组扶持</p></td>
+
+            <td><p>委派店长坐店</p>
+            <p>新零售项目组扶持</p>
+            <p>A类门店项目组扶持</p></td>
+
+<!--             <td><p>委派店长坐店</p>
+            <p>新零售项目组扶持</p>
+            <p>A类门店项目组扶持</p></td> -->
+        </tr>
+    </tbody>
+</table>
+						</div>
+						<!--加盟政策结束-->
+
+						<!--六大加盟支持开始-->
+					<div class="hzbz_zhch">
+					<dl>
+						<dt>六大加盟支持：</dt>
+						<dd>
+						<p>人员支持：开店前，市场人员下店协助选址评估、市场调研服务；试营业期间由省区主管，陈列师上门指导2-5天，进行商品陈列等指导；</p>
+						<p>技术支持：提供专业专卖店设计，其中包含：平面图、布局图、效果图、施工图等；并安排专业施工监理上门，施工交底、施工指导、装修费用评估、确保店面装修高效快速完成；</p>
+						<p>培训支持：定期到总部进行开业班培训、陈列、销售技巧、运营技巧、系统培训、产品知识等进行专业培训；
+						<p>系统支持：免费使用门店管理系统FCB和提供TC在线平台培训。</p>
+						<p>方案支持：开业前期由开业导师，省区经理上门指导门店宣传策划，制定促销方案，落实促销人员，货品，确保开业成功；开业10-15天由大区经理到店进行开业验收，对筹备期间，试营业期间，开业期间存在的问题及成果进行全面总结，做出开业总结报告。</p>
+						<p>运营支持：开业后由区域督导定期对门店巡查，指导，扶持，确保门店正常运营。</p>
+						</dd>
+					</dl>
+
+					</div>
+						<!--六大加盟支持结束-->
+
+			  </div>
+			<!--新的加盟政策结束-->
+            <div style="margin:20px auto; width:1000px;padding: 0 5px;" class="clear-index">
+                <div style="text-align: right;color: #1092d4;padding-right: 80px;">母婴店加盟友链申请：310169873</div>
+                <span style="">友情链接：</span>
+                <a href="https://www.qj.com.cn/zt/muyingdianjiameng/" target="_blank">母婴店加盟哪家好</a>
+             </div>
+                </div>
+            </div>
+			</div>
+        </div>
+    </div>
+{template "content","footer"}
+
+
+</body>
+</html>

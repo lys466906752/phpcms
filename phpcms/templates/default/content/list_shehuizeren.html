@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$CAT['url']); ?>">
+<!--跳转按钮开始-->
+{if $catid==71}
+{
+	<script language="javascript">
+			window.location= "http://jiameng.aiqin.com/condition/#dd";
+	</script>
+}
+{/if}
+<!--跳转按钮结束-->
+
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="container">
+{template "content","header"}
+   	<div class="banner">
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+		{if $catid==54 || $catid==55 || $catid==58 || $catid==163}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}zs_new_ban.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{else}
+		<div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{/if}
+	</div>
+	{if $catid==149}
+	<div style="height:15px;overflow:hidden;clear:both;"></div>
+	{else}
+	<div  style="margin-top:10px;margin-bottom:10px;"> </div>
+	{/if}
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu {if $catid==66 or $catid==150}lanmu02{/if}"><h1 class="zh">{$CATEGORYS[$catid][catname]}</h1><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> > {catpos($catid)} 列表</span></div>
+		<div class="content">
+			{if $catid==60}
+			<div class="zhaopin">
+				<div class="clearfix">
+					<div class="zhaopin_l">
+						<div class="div_a"><img src="{IMG_PATH}zp_06.jpg" width="205" height="565" alt=""/></div>
+					</div>
+					<div class="zhaopin_r">
+						<div class="div_a">想要"实现自己的价值"吗？请加入我们，和我们一起成长吧！</div>
+						<div class="zhiwei">
+							<div class="gdtiao">
+								{pc:content action="lists" moreinfo="1" catid="$catid" num="6" order="inputtime DESC" page="$page"}
+								<div id="pl_srcoll">
+									<div style="padding:5px;">
+									{loop $data $r}
+									<div class="zw_item clearfix">
+										<div class="zw_iteml"><div>{$r[title]}</div></div>
+										<div class="zw_itemr info">
+											<div>{str_cut($r['description'],200)}</div>
+											<div style="text-align:right; cursor:pointer;">更多详情》》</div>
+										</div>
+										<div class="zw_itemr content" style="display:none;">
+											{$r[content]}
+											<div class="hide_content" style="text-align:right; cursor:pointer;">收起》》</div>
+										</div>
+									</div>
+									{/loop}
+									</div>
+								</div>
+								{/pc}
+								<script type="text/javascript">
+								$(document).ready(function(){               
+									
+									$(".info").click(function(){
+										$(this).slideUp().siblings(".content").slideDown();
+									})
+									$(".hide_content").click(function(){
+										$(this).parent(".content").slideUp().siblings(".info").slideDown();
+									})
+								});
+								</script>
+							</div>
+						</div>
+						<div class="pages">{$pages}</div>
+					</div>
+				</div>
+			</div>
+			{elseif $catid==25}
+			<div class="zixun">
+				<div class="news_con">
+					<ul class="clearfix">
+						{pc:content action="lists" catid="$catid" num="9" order="inputtime DESC" page="$page"}
+						{loop $data $r}
+						<li>
+							<a href="{$r[url]}" title="{$r[title]}">
+								<p><img src="{thumb($r[thumb],295,171)}" width="295" height="171" alt="{$r[title]}" /></p>
+								<p class="p2" style="text-align:center;">{$r[title]}</p>
+							</a>
+						</li>
+						{/loop}
+						{/pc}
+					</ul>
+				</div>
+				<div class="pages">{$pages}</div>
+			</div>
+			{elseif $catid==149}
+			<div class="contentbox-lft">
+				<div class="breadbox">最新问答</div>
+				{pc:content action="lists" catid="$catid" num="22" order="inputtime DESC" page="$page"}
+				<ul class="asklst">
+					{loop $data $r}
+					<li>提问：<a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a>
+					<p>回答：{str_cut($r['description'],200)}</p>
+					<div><a href="{$r[url]}">[查看详情]</a></div>
+					</li>
+					{/loop}
+				</ul>
+				{/pc}
+				<div class="pages">{$pages}</div>
+			</div>
+			<div class="contentbox-rgt">
+				<div class="breadbox">热点推荐</div>
+				{pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+				<ul class="asklst">
+					{loop $data $r}
+						<li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+					{/loop}
+				</ul>
+				{/pc}
+			</div>
+			{elseif $catid==24}
+			<div class="active">
+            	<div id="wraper" style="position:relative;">
+                	  {pc:content action="lists" catid="$catid" num="12" order="inputtime DESC" page="$page"}
+                	  {loop $data $r}
+                      <div class="box">
+                          <div class="img"><a href="{$r[url]}" title="{$r[title]}"><img src="{thumb($r[thumb],214,0)}" width="214" alt="{$r[title]}"/></a></div>
+                          <div class="div_a"><a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a></div>
+                          <div class="div_b">{date('Y-m-d',$r[inputtime])}</div>
+                          <div class="div_c">{str_cut($r['description'],200)}</div>
+                          <div class="div_d"><a href="{$r[url]}"> 更多详情>></a></div>
+                      </div>
+					  {/loop}
+					  {/pc}
+                </div>
+            </div>
+            <div class="pages">{$pages}</div>
+			{else}
+        	<div class="{if $catid==54 or $catid==23 or $catid==52 or $catid==63 or $catid==65}school{else}news{/if}">
+            	<div class="{if $catid==55 or $catid==66 or $catid==150 or $catid==71 or $catid==61 or $catid==62}model{elseif $catid==54 or $catid==23 or $catid==52 or $catid==63 or $catid==65}box_b clearfix{else}news_list{/if}">
+					{if $catid==65}
+					{pc:content  action="position" posid="10" num="1" catid="$catid" order="listorder DESC" return="info"}
+					{loop $info $r}
+					<div class="list-res clearfix">
+						<div class="img"><a href="{$r[url]}"><img src="{thumb($r[thumb],168,155)}" alt="{$r[title]}" width="168" height="155"/></a></div>
+						<div class="div_aa">推荐信息</div>
+						<div class="div_a"><a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a></div>
+						<div class="div_b">{str_cut($r['description'],200)}</div>
+						<div class="div_more"><a href="{$r[url]}">详细>></a></div>
+					</div>
+					{/loop} 
+					{/if}
+					{if $catid==54 or $catid==23 or $catid==52 or $catid==63 or $catid==65}<div class="xinde">{/if}
+					{if $catid==58}<div class="faq">{/if}
+					{if $catid==54 or $catid==23 or $catid==52 or $catid==63}{pc:content action="lists" catid="$catid" num="40" order="inputtime DESC" page="$page"}
+					{elseif $catid==66 or $catid==150}
+					{pc:content action="lists" moreinfo="1" catid="$catid" num="12" order="listorder asc" page="$page"}
+					{elseif $catid==65}
+					{pc:content action="lists" moreinfo="1" catid="$catid" num="12" order="inputtime DESC" page="$page"}
+					{elseif $catid==58}
+					{pc:content action="lists" moreinfo="1" catid="$catid" num="6"  order="listorder asc" page="$page"}
+					{elseif $catid==55}
+					{pc:content action="lists" moreinfo="1" catid="$catid" num="6"  order="listorder asc" page="$page"}
+					{else}{pc:content action="lists" moreinfo="1" catid="$catid" num="6" order="inputtime DESC" page="$page"}{/if}
+                	<ul{if $catid==54 or $catid==23 or $catid==52 or $catid==63 or $catid==65} class="list-xinde"{/if}>
+						{loop $data $r}
+						{if $catid==55}
+							<li>
+								<span class="fl"><a href="{$r['url']}" title="{$r[title]}"><img src="{thumb($r[thumb],240,250)}" width="240" height="250" alt="{$r[title]}" /></a></span>
+								<div class="fr">
+									<p class="p1"><a href="{$r['url']}" title="{$r[title]}">{$r[title]}</a></p>
+									<p class="p2"></p>
+									<div class="p3">
+									<p style="text-indent:2em" class="MsoNormal">
+										{str_cut($r['description'],1000)}
+									</p>
+									<p style="display:none">10</p>
+									</div>
+								</div>
+							</li>
+						{elseif $catid==61 or $catid==62}
+						<li>
+							<span class="fl"><a href="javascript:void();" title="{$r[title]}"><img src="{thumb($r[thumb],150,220)}" width="150" height="220" alt="{$r[title]}" /></a></span>
+							<div class="fr">
+								<p class="p1"><a href="javascript:void();" title="{$r[title]}">{$r[title]}</a></p>
+								<p class="p2"></p>
+								<div class="p3">{$r[content]}</div>
+							</div>
+						</li>
+						{elseif $catid==66 or $catid==150}
+						<li class="s1">
+							<span class="fl"><a href="javascript:void();" title="{$r[title]}"><img src="{thumb($r[thumb],305,185)}" width="305" height="185" alt="{$r[title]}" /></a></span>
+							<div class="fr">
+								<p class="p1"><a href="javascript:void();" title="{$r[title]}">{$r[title]}</a></p>
+								<p class="p2"></p>
+								<div class="p3">
+								<p style="text-indent:2em" class="MsoNormal">
+									{str_cut($r['description'],500)}
+								</p>
+								<p style="display:none">11</p>
+								</div>
+							</div>
+						</li>
+						{elseif $catid==71}
+						<li class="s1">
+							<span class="fl"><a href="javascript:void();" title="{$r[title]}"><img src="{$r[thumb]}" width="305" height="185" alt="{$r[title]}" /></a></span>
+							<div class="fr">
+								<p class="p1"><a href="javascript:void();" title="{$r[title]}">{$r[title]}</a></p>
+								<p class="p2"></p>
+								<div class="p3">
+								
+									{$r[content]}
+								
+								</div>
+							</div>
+						</li>
+						{elseif $catid==54 or $catid==23}
+						<li><span class="jj"><a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a></span><span class="sj">{date('Y-m-d',$r[inputtime])}</span></li>
+						{elseif $catid==52 or $catid==63 or $catid==65}
+						<li><span class="jj"><a title="{$r[title]}" href="{$r[url]}">{$r[title]}</a></span></li>
+						{elseif $catid==58}
+						<li>
+						<div class="p1">{$r[title]}</div>
+						<div class="p2">{$r[content]}</div>
+						<div class="cjwt_img"><a href="http://www.aiqin.com/qlist/0-2-0.html"><img src="{IMG_PATH}/cjwt_more.png" alt="答疑解惑"></a></div>				
+						</li>
+						{else}
+						<li class="clearfix">
+                        	<div class="img"><a href="{$r[url]}" target="_blank"{title_style($r[style])}><img src="{thumb($r[thumb],178,118)}" alt="{$r[title]}" width="178" height="118"/></a></div>
+                            <div class="nr">
+                                <div class="div_a"><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a><span class="sj">{date('Y-m-d',$r[inputtime])}</span></div>
+                                <div class="div_b">{str_cut($r['description'],200)}</div>
+                            </div>
+                        </li>
+						{/if}
+						{/loop}                        						                        
+                    </ul>
+					{/pc}
+					{if $catid==54 or $catid==23 or $catid==58 or $catid==52 or $catid==63 or $catid==65 or $catid==61 or $catid==62}</div>{/if}
+                    <div class="pages">{$pages}</div>
+                </div>
+            </div>
+			{/if}
+        </div>
+    </div>
+{template "content","footer"}
+</div>
+</body>
+</html>

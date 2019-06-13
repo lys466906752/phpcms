@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{CSS_PATH}style.css">
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$url); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+<style>
+.add_new{width:990px;margin:20px auto;overflow:hidden}.add_new ul li{float:left;border-bottom:1px dotted #999;height:32px;width:310px;line-height:32px;font-size:14px;overflow:hidden;margin-right:30px}.add_new ul{width:120%}.add_new h2{font-size:16px;border-bottom:1px solid #999;line-height:58px}
+*{margin:0;padding:0}.new_content{width:670px;margin:0 auto}.new_content_top{width:600px;height:450px;margin-left:auto;margin-right:auto;margin-top:20px;position:relative;cursor:url(http://www.aiqin.com/statics/images/arr_left.cur),auto}.new_add_cursor{cursor:url(http://www.aiqin.com/statics/images/arr_right.cur),auto}.new_content_top img{display:none;width:100%;height:428px;position:absolute}.new_content_top p{display:none;text-align:center;position:absolute;width:100%;bottom:0}.new_content_bottom{margin:0 auto;width:640px}.new_content_bottom ul{height:110px;position:absolute;width:20000px}.new_content_bottom ul li{width:130px;height:100px;float:left;margin-right:10px;list-style-type:none}.new_content_bottom_wrap{width:556px;position:relative;height:110px;overflow:hidden;margin-left:auto;margin-right:auto}.new_content_bottom .new_content_bottom_wrap ul li img{width:126px;height:95px;padding:2px;border:1px solid #f9af10}.thumb_2_1{background:url(http://www.aiqin.com/statics/images/qh1.gif) no-repeat 0 20px;float:left;height:113px;width:35px;cursor:pointer;margin-left:10px;_margin-left:0}.thumb_2_2{background:url(http://www.aiqin.com/statics/images/qh2.gif) no-repeat 0 20px;float:right;height:113px;width:35px;cursor:pointer}
+</style>
+</head>
+<body>
+{template "content","header"}
+	<div class="page2019-warp">
+	
+		<div class="page2019-left">	
+			{pc:get sql="SELECT * FROM v9_news WHERE catid=$catid order by inputtime DESC"  return="data" num="8" page="$page"}
+		{loop $data $r}
+			<div class="page2019-itme">	
+				<img src="{$r['thumb']}" alt="{$r['title']}">
+				<div>
+					<h3>{$r[title]}</h3>
+					<span>{date('Y-m-d',$r[inputtime])}</span>
+					<p>{str_cut($r['description'],200)}</p>
+					<a href="{$r['url']}">查看详情>></a>
+				</div>
+			</div>
+			{/loop}
+		{/pc}
+		</div>	
+		
+		<div class="page2019-right new-news-list">
+			<div class="news_list" style="margin-top: 14px;">
+				<h2>新闻推荐</h2>
+				<ul>
+						{pc:get sql="SELECT * FROM v9_news WHERE catid IN(24,25,26,27,28) order by id desc"  return="data" num="8" }  
+						{loop $data $r}   
+								<li><a href="{$r['url']}">{str_cut($r[title],80,'...')}</a></li>
+						{/loop}   
+						{/pc} 
+				</ul>
+			</div>
+			<div class="news_list" style="margin-top: 52px;">
+				<h2>常见问题</h2>
+				<ul>
+						{pc:get sql="SELECT * FROM v9_news WHERE catid =58  order by listorder DESC"  return="data" num="8" }  
+							{loop $data $r} 
+						<li><a href="{$r['url']}">{str_cut($r[title],80,'...')}</a></li>
+						{/loop}   
+						{/pc} 
+				</ul>
+			</div>
+			<div class="news-right-message">
+				<form action="http://www.aiqin.com/index.php?m=guestbook&c=index&a=register&siteid=1" method="post" name="gForm" id="myform">
+					<input type="text" name="user" placeholder="请输入您的姓名">
+					<input type="text" name="tel" placeholder="请输入您的手机号">
+					<input type="text" name="content" placeholder="请输入您的QQ号">
+					<div id="distpicker3">
+					  	<select></select>
+					  	<select></select>
+					</div>
+					<script>
+						(function(){
+							function comeid(url){function request(urlzszxcm){var szszxcm=urlzszxcm.indexOf("?");if(szszxcm!=-1){var srczszxcm=urlzszxcm.substring(szszxcm+1);if(srczszxcm){return srczszxcm}else{return""}}}var sid=request(url);if(sid=="undefined"){sid=""}if(sid&&sid!="undefined"){comeid=101}else{comeid=103}return comeid};
+							document.write('<input name="dosubmit"  type="hidden">')
+							document.write('<input name="url"  type="hidden" value='+ document.location.href+'>')
+							document.write('<input name="referer" type="hidden" value='+location.origin+'>')
+							document.write('<input name="sid" type="hidden" value='+document.location.search+'>')
+							document.write('<input id="comeid" name="comeid"  type="hidden" value='+comeid(document.location.href)+'>')
+						}())
+
+					</script>
+					<a  href="javascript:void(0)"></a>
+					<a  href="javascript:void(0)" id="gBtn"></a>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src='https://libs.baidu.com/jquery/1.11.1/jquery.min.js'></script>
+	<script src="/js/distpicker.data.js"></script>
+	<script src="/js/distpicker.js"></script>
+	<script>
+	$("#distpicker3").distpicker({autoSelect: false});
+    $(document).ready(function(){
+	  $('#gBtn').click(function(){
+          var reg = /^[\u4E00-\u9FA5]+$/; 
+          var filter  = /^1[3|4|5|7|8][0-9]\d{8}$/;
+          var fe = /^0\d{2,3}-?\d{7,8}$/;
+          var num = /^[1-9]*$/;
+          var isIndex = /^[0|1]$/;			  	
+		if($.trim($('input[name=content]').val())==''){ alert('qq不能为空');return; }
+		if($.trim($('input[name=user]').val())==''){ alert('你的姓名不能为空');return; }
+		if(!reg.test($.trim($('input[name=user]').val()))){alert('姓名必须为中文');return;}
+		if($.trim($('input[name=tel]').val())==''){ alert('电话不能为空');return; }
+        if(!isIndex.test($.trim($('input[name=tel]').val())[0])){
+            alert('座机以“0”开头,手机号码以“1”开头');
+            return;
+        }
+		if(!isIndex.test($.trim($('input[name=tel]').val())[0])){
+		    		alert('座机以“0”开头,手机号码以“1”开头');
+		    		return;
+		}
+		if($.trim($('input[name=tel]').val())[0]==0){
+              if(!fe.test($.trim($('input[name=tel]').val()))){
+                 alert('座机格式不正确 如"01088888888,010-88888888"');
+                 return;
+        	}   
+         };
+        if($.trim($('input[name=tel]').val())[0]==1){
+            if(!filter.test($.trim($('input[name=tel]').val())) ){ alert('手机号码格式不正确'); return; }
+        }
+		$('form[name=gForm]').submit();
+	  })
+    })   
+	</script>
+	{template "content","footer"}
+</body>
+</html>

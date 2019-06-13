@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{if $catid!=30}{$SEO['site_title']}{/if}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$CAT['url']); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+{template "content","header"}
+   	<div class="banner">
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="" /></a></div></div>
+    </div>
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			{if $s[catid]!=28}
+<!-- 			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li> -->
+			{/if}
+			{/loop}
+			{/pc}
+		</ul>
+	</div>
+    </div>
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu"><h1 class="zh">{$CATEGORYS[$catid][catname]}</h1><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> > {catpos($catid)} 列表</span></div>
+		<div class="content">
+			{if $catid==30 or $parentid==30}
+			<div class="zixun">
+			<div class="lanmu">
+			{pc:content action="category" catid="30" num="5" siteid="$siteid" order="listorder ASC" return=subdata}
+				{loop $subdata $sub}
+				<a {if $sub[catid]==$catid}style="color:#5188A5;"{/if} href="{$sub[url]}">{$sub[catname]}</a>&nbsp;&nbsp;
+				{/loop}
+			{/pc}
+			</div>
+			
+			<div class="down_list">
+				<ul>
+				{pc:content action="category" catid="30" num="5" siteid="$siteid" order="listorder ASC"}
+				{loop $data $v}	
+				
+				{pc:content action="category" catid="$v[catid]" num="10" siteid="$siteid" order="listorder ASC"}
+				{loop $data $v0}	
+				{pc:content  action="lists" catid="$v[catid]" num="1" order="inputtime asc" return="info"}
+				{loop $info $r}
+				<li><a href="/book.swf?id={$v0[catid]}" target="_blank"><img src="{$r[thumb]}" width="270" alt="{$v[catname]}"><br />{$v[catname]}</a></li>
+				{/loop}
+				{/pc}
+				{/loop}
+				{/pc}
+				
+				{pc:content  action="lists" catid="$v[catid]" num="1" order="inputtime asc" return="info"}
+				{loop $info $r}
+				<li {if $v[catid]==72 or $v[catid]==73}style="display:none;"{/if}><a href="/book.swf?id={$v[catid]}" target="_blank"><img src="{$r[thumb]}" width="270" alt="{$v[catname]}"><br />{$v[catname]}</a></li>
+				{/loop}
+				{/pc}
+			
+				{/loop}
+				{/pc}
+				</ul>
+			</div>
+			
+        	</div>
+			
+			{elseif $catid==118}
+			<div class="danye">
+			<div style="float:right;"></div>
+    		<div class="newpro">
+			{pc:content action="category" catid="$catid" num="0" siteid="$siteid" order="listorder ASC"}
+			{loop $data $r}
+			<div class="protitle">{$r[catname]}</div>
+			<ul class="propic">
+				{pc:content  action="lists" catid="$r[catid]" num="0" moreinfo="1" order="inputtime DESC" return="info"}
+				{loop $info $sub}
+				<li><img src="{$sub[thumb]}" width="215" height="215"/><p>商品名称：{$sub[title]}<br />货号：{$sub[description]}</p></li>
+				{/loop}
+				{/pc}
+			</ul>
+			{/loop}
+			{/pc}
+			</div>	
+            </div>
+			{else}
+			<div class="school">
+				<div class="title"><span>{$CATEGORYS[61]['catname']}</span><a class="more" href="{$CATEGORYS[61]['url']}"><img src="{IMG_PATH}s15_10.png" alt="" width="42" height="11"/></a></div>
+                <div class="box_b">
+                	<div class="carousela">
+                      <a href="javascript:void();" class="prev"><img src="{IMG_PATH}s15_32.png" width="36" height="36" alt="" title="" /></a>
+                      <div class="jCarouselLitea">
+                      <ul>
+						{pc:content action="lists" catid="61" num="10" order="id DESC"}
+						{loop $data $r}
+						<li><a href="{$CATEGORYS[61]['url']}" title=""><img src="{thumb($r[thumb],115,170)}" width="115" height="170" alt="{$r['title']}"/></a></li>
+						{/loop}
+						{/pc}
+					  </ul>
+                      </div>
+                      <a href="javascript:void();" class="next"><img src="{IMG_PATH}s15_35.png" width="36" height="36" alt="" title="" /></a>
+                      <script type="text/javascript">
+                      $(function(){
+                          $(".jCarouselLitea").jCarouselLite({
+                          start: 0,
+                          btnNext: ".carousela .next",
+                          btnPrev: ".carousela .prev",
+                          auto: 0,
+                          speed: 200,
+                          scroll: 1,
+                          visible: 6,
+                          vertical: false,
+                          mouseWheel: true,
+                          circular: true
+                          })
+                      });
+                      </script>
+                    </div>
+                </div>
+				<!--
+            	<div class="title"><span>{$CATEGORYS[62]['catname']}</span><a class="more" href="{$CATEGORYS[62]['url']}"><img src="{IMG_PATH}s15_10.png" alt="" width="42" height="11"/></a></div>
+                <div class="box_b">
+                	<div class="carousel">
+                        <a href="javascript:void();" class="prev"><img src="{IMG_PATH}s15_32.png" width="36" height="36" alt="" title="" /></a>
+                    <div class="jCarouselLite">
+                    <ul>
+						{pc:content action="lists" catid="62" num="10" order="id DESC"}
+						{loop $data $r}
+						<li><a href="{$CATEGORYS[62]['url']}" title=""><img src="{$r[thumb]}" width="115" height="170" alt="{$r['title']}"/></a></li>
+						{/loop}
+						{/pc}
+                    </ul>
+                    </div>
+                    <a href="javascript:void();" class="next"><img src="{IMG_PATH}s15_35.png" width="36" height="36" alt="" title="" /></a>
+                    <script type="text/javascript">
+                        $(function(){
+                          $(".jCarouselLite").jCarouselLite({
+                          start: 0,
+                          btnNext: ".carousel .next",
+                          btnPrev: ".carousel .prev",
+                          auto: 0,
+                          speed: 200,
+                          scroll: 1,
+                          visible: 6,
+                          vertical: false,
+                          mouseWheel: true,
+                          circular: true
+                          })
+                        });
+                    </script>
+                    </div>
+                </div>
+				-->
+            	<div class="title title_a"><span>{$CATEGORYS[63]['catname']}</span><a class="more" href="{$CATEGORYS[63]['url']}"><img src="{IMG_PATH}s15_10.png" alt="" width="42" height="11"/></a></div>
+                <div class="box_b clearfix">
+                	<div class="box_bl">
+                    	<ul class="list">
+							<?php $recent=news("0,6","1","where catid=63","id DESC");?>
+							{loop $recent $r}
+							<li><span class="jj"><a href="{$r['url']}" title="{$r['title']}">{str_cut($r['title'],82)}</a></span><span class="sj">{date('Y-m-d',$r[inputtime])}</span></li>
+							{/loop}
+							{/pc}
+						</ul>
+                    </div>
+                    <div class="box_br">
+                    	<ul class="list">
+							<?php $recent=news("6,6","1","where catid=63","id DESC");?>
+							{loop $recent $r}
+							<li><span class="jj"><a href="{$r['url']}" title="{$r['title']}">{str_cut($r['title'],82)}</a></span><span class="sj">{date('Y-m-d',$r[inputtime])}</span></li>
+							{/loop}
+							{/pc}
+						</ul>
+                    </div>
+                </div>
+            	<div class="title title_b"><span>{$CATEGORYS[64]['catname']}</span><a class="more" href="{$CATEGORYS[64]['url']}"><img src="{IMG_PATH}s15_10.png" alt="" width="42" height="11"/></a></div>
+                <div class="box_b clearfix">
+                	<div class="box_bl">
+                    	<ul class="list">
+							{pc:content action="lists" catid="64" num="10" order="id DESC"}
+							{loop $data $r}
+							<li><span class="jj"><a href="{$r['url']}" title="{$r['title']}">{str_cut($r['title'],82)}</a></span><span class="sj">{date('Y-m-d',$r[inputtime])}</span></li>
+							{/loop}
+							{/pc}
+						</ul>
+                    </div>
+                    <div class="box_br">
+                    <img src="{IMG_PATH}s15_57.png" alt="培训视频" width="421" height="263"/>
+                    </div>
+                </div><div class="title title_c"><span>{$CATEGORYS[65]['catname']}</span><a class="more" href="{$CATEGORYS[65]['url']}"><img src="{IMG_PATH}s15_10.png" alt="" width="42" height="11"/></a></div>
+                <div class="box_b clearfix">
+					{pc:content  action="position" posid="10" num="1" catid="65" order="listorder DESC" return="info"}
+					{loop $info $r}
+                	<div class="box_bl">
+                    	<div class="img"><a href="{$r[url]}"><img src="{thumb($r[thumb],168,155)}" alt="{$r[title]}" width="168" height="155"/></a></div>
+                        <div class="div_a"><a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a></div>
+                        <div class="div_b">{str_cut($r['description'],200)}</div>
+                    </div>
+					{/loop} 
+					{/pc} 
+                    <div class="box_br">
+                    	<ul class="list">
+							<?php $recent=news("0,7","1","where catid=65","id DESC");?>
+							{loop $recent $r}
+							<li><span class="jj"><a href="{$r['url']}" title="{$r['title']}">{str_cut($r['title'],82)}</a></span><span class="sj">{date('Y-m-d',$r[inputtime])}</span></li>
+							{/loop}
+							{/pc}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+			{/if}
+        </div>
+    </div>
+	{if $catid==118}
+	<style type="text/css">
+	.disblock{display:block;}
+	</style>
+	<script type="text/javascript">
+	$(function(){
+		$(".propic").eq(0).addClass("disblock");
+		$(".protitle").click(function(){
+			$(this).next(".propic").toggle();
+		});
+	});
+	</script>
+	{/if}
+{template "content","footer"}
+</div>
+</body>
+</html>

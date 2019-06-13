@@ -1,0 +1,126 @@
+<div style="width: 990px;margin: 0 auto;padding-bottom: 10px">您好，欢迎来到爱亲母婴 - 中国母婴加盟行业连锁品牌!</div>
+<div class="out_header">
+	{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+	<div class="header">
+		<h1 class="logo" style="width: 0px;height: 0px;text-indent: -9999px;display: block;">母婴店加盟</h1><a target="_blank" href="http://www.aiqin.com/" alt="母婴店加盟"><img src="{IMG_PATH}logo.gif" alt="爱亲母婴加盟官方网站"/></a></h1>
+		<!-- <p style="color: #1291d4;position: absolute; top: 60%;left:140px;font-size: 14px">北京</p> -->
+		<div class="nav">
+			{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+			<ul class="ul1">
+				<li class="li1"><a target="_blank"  class="a1" href="{siteurl($siteid)}">首页</a></li>
+				{loop $data $r}
+				{pc:content action="category" catid="$r[catid]" num="1" siteid="$siteid" order="listorder ASC" return=subdata}
+				{loop $subdata $sub}
+				<li class="li1 {if $r[catid]==$pid}cur{/if}"><a target="_blank" class="a1" href="{if $r[catid]==0}{$r[url]}{else}{$sub[url]}{/if}">{$r[catname]}</a>
+				{/loop}
+				{/pc}
+				<div class="out_nav out_nav3">
+					<div class="out_nav_in clearfix">
+						<div class="out_navl">
+							<ul>
+								{pc:content action="category" catid="$r[catid]" num="11" siteid="$siteid" order="listorder ASC" return=subdata}
+								{loop $subdata $sub}
+								{if $sub[catid]==20}
+								<li{if $sub[catid]==$catid} class="now"{/if}><a target="_blank" href="http://www.aiqin.com/ry_pp/">{$sub[catname]}</a></li>
+								{else}
+								<li{if $sub[catid]==$catid} class="now"{/if}><a target="_blank" href="{$sub[url]}">{$sub[catname]}</a></li>
+								{/if}
+								{/loop}
+								{/pc}
+							</ul>
+						</div>
+						<div class="out_navr clearfix">
+							<div class="out_navrl">
+								{if $r[catid]==9}<img src="{IMG_PATH}n1_10.png" alt="关于爱亲" width="155" height="120"/>{/if}
+								{if $r[catid]==10}<img src="{IMG_PATH}n2_10.png" alt="新闻动态" width="155" height="154"/>{/if}
+								{if $r[catid]==137}<img src="{IMG_PATH}n3_10.png" alt="加盟合作" width="155" height="154"/>{/if}
+								{if $r[catid]==12}<img src="{IMG_PATH}n4_10.png" alt="形象展示" width="155" height="154"/>{/if}
+								{if $r[catid]==13}<img src="{IMG_PATH}n5_10.png" alt="社会责任" width="155" height="154"/>{/if}
+								{if $r[catid]==14}<img src="{IMG_PATH}gd_10.png" alt="互动交流" width="155" height="154"/>{/if}
+								{if $r[catid]==156}<img src="{IMG_PATH}zhaopin_01.png" alt="人才招聘" width="155" height="154"/>{/if}
+							</div>
+							<div class="out_navrr">
+								<div class="tit">
+									{if $r[catid]==10}
+									每周头条<a target="_blank" href="/news/top/" class="more"><img src="{IMG_PATH}more.gif" alt="" width="43" height="12"/></a>
+									{elseif $r[catid]==156}
+									{$r[catname]}<a target="_blank" href="/qzzp/qz_jz/" class="more"><img src="{IMG_PATH}more.gif" alt="" width="43" height="12"/></a>
+									{elseif $r[catid]==12}
+									{$r[catname]}<a target="_blank" href="/image/zbfc/" class="more"><img src="{IMG_PATH}more.gif" alt="" width="43" height="12"/></a>
+									{elseif $r[catid]==13}
+									{$r[catname]}<a target="_blank" href="/charity/" class="more"><img src="{IMG_PATH}more.gif" alt="" width="43" height="12"/></a>
+									{elseif $r[catid]==9}
+									{$r[catname]}<a target="_blank" href="/aboutus/company/" class="more"><img src="{IMG_PATH}more.gif" alt="" width="43" height="12"/></a>
+									{else}
+									{$r[catname]}<a target="_blank" href="{$r[url]}" class="more {$r[catid]} a"><img src="{IMG_PATH}more.gif" alt="" width="43" height="12"/></a>{/if}
+								</div>
+								<div>
+									{if $r[catid]==9}							
+									<p>
+									   <span class="yahei f16">妈妈身边的育婴顾问</span>
+									</p>
+									{/if}
+									{if $r[catid]==10}
+									<ul>
+										{pc:content  action="lists" catid="$r[catid]" num="6" order="inputtime DESC" return="info"}
+										{loop $info $v}
+										<li><span class="jj"><a target="_blank" href="{$v['url']}" title="{$v['title']}">{str_cut($v['title'],46)}</a></span><span class="sj">{date('Y-m-d',$v[inputtime])}</span></li>
+										{/loop}
+										{/pc}
+									</ul>
+									{/if}
+									{if $r[catid]==137}
+									<p>
+									   <span class="yahei f16">商务部特许经营企业</span><br/>
+									   <span class="yahei f16">为您的加盟投资保驾护航</span>
+									</p>
+
+									{/if}
+									{if $r[catid]==12}
+									<p><span class="yahei f16">品牌全新升级<br /></span>
+										<span class="yahei f16">打造中国专业的母婴服务团队<br />
+										<br />
+										</span>
+									</p>
+									{/if}
+									{if $r[catid]==13}
+									<ul>
+										{pc:content  action="lists" catid="$r[catid]" num="6" order="inputtime DESC" return="info"}
+										{loop $info $v}
+										<li><span class="jj"><a target="_blank" href="{$v['url']}" title="{$v['title']}">{str_cut($v['title'],46)}</a></span><span class="sj">{date('Y-m-d',$v[inputtime])}</span></li>
+										{/loop}
+										{/pc}
+									</ul>
+									{/if}
+									{if $r[catid]==14}
+									<p><span class="yahei f16">母婴用品专家</span><br /><span class="yahei f16">服务万千妈妈</span></p>
+									{/if}
+									{if $r[catid]==156}
+									<p><span class="yahei f16">心有多大</span><br /><span class="yahei f16">舞台就有多大</span></p>
+									{/if}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</li>
+				{/loop}
+				<li class="li1"><a target="_blank" class="a1" href="http://www.aiqin.com/aboutus/contact/">联系我们</a></li>
+			</ul>
+			{/pc}
+			{php echo runhook('glogal_menu')}
+		</div>
+		<div class="div_a"><span class="b_top"><a target="_blank" href="http://www.aiqin.com/txjy_page/"><img src="{IMG_PATH}index_weibo.png" alt="爱亲微博"/></a></span></div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".li1").hover(function(){
+		$(this).find(".out_nav").stop().fadeIn();
+		},function(){
+
+		$(this).find(".out_nav").stop().fadeOut();
+			});
+	});
+</script> 
+<link rel="shortcut icon" href="/favicon.ico">

@@ -1,0 +1,7 @@
+{pc:content  action="position" posid="10" catid="$catid" thumb="1" order="listorder DESC" num="2"}
+                {loop $data $v}
+                  <h4 class="blue"><a href="{$v[url]}" target="_blank"{title_style($v[style])}>{$v[title]}</a></h4>
+                <p><img src="{thumb($v[thumb],90,60)}" width="90" height="60" />{str_cut(strip_tags($v[description]), 150)}</p>
+                <div class="bk20 hr"><hr /></div>
+                {/loop}
+            {/pc}

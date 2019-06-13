@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+<link href="{CSS_PATH}jquery.lightbox-0.5.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{JS_PATH}jquery.lightbox-0.5.js"></script>
+<script type="text/javascript">
+$(function() {
+    $('#gallery a').lightBox();
+});
+</script>
+</head>
+<body>
+<div class="container">
+{template "content","header"}
+   	<div class="banner">
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$pid}.jpg" alt="" /></a></div></div>
+    </div>
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/loop}
+			{/pc}
+		</ul>
+	</div>
+    </div>
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu"><span class="zh">{$CATEGORYS[$catid][catname]}</span><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> > {catpos($catid)} 列表</span></div>
+		<div class="content">
+			<div class="img_list clearfix" id="gallery">
+                <ul>
+					{pc:content action="lists" catid="$catid" num="12" order="id DESC" page="$page"}
+					{loop $data $r}
+					<li>
+					<a href="{$r[thumb]}" title="{$r[title]}"><img src="{thumb($r[thumb],200,133)}"  width="200" height="133" alt="{$r[title]}" /><br />{str_cut($r['title'],62)}</a>
+					</li>
+					{/loop}
+					{/pc}
+                </ul>
+            </div>
+            <div class="pages">{$pages}</div>
+        </div>
+    </div>
+{template "content","footer"}
+</div>
+</body>
+</html>

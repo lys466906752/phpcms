@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}</title>-->
+<title>{$title}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$url); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+<script src="{JS_PATH}swfobject.js" type="text/javascript"></script>
+<link href="{CSS_PATH}video.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+{template "content","header"}
+   	<div class="banner">
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$pid}.jpg" alt="" /></a></div></div>
+    </div>
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/loop}
+			{/pc}
+		</ul>
+	</div>
+    </div>
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu"><span class="zh">{$CATEGORYS[$catid][catname]}</span><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> > {catpos($catid)} 列表</span></div>
+		<div class="content">
+			
+                <div class="p01 clearfix">
+	<div class="p01_l">
+		<h2 id="video_title"><a href="#" target="_blank">{$title}</a></h2>
+		<div class="video_box" id="video_box">
+			<input type="hidden" name="first" id="first" value="{$content}" />
+			<input type="hidden" name="first" id="tbpic" value="{$thumb}" />
+			<div id="player5" style="width:640px; margin:0 auto;" >
+			<p id="player1" style="margin:0px;"></p>
+			<script type="text/javascript">
+			var url = $("#first").val();
+			var tbpic = $("#tbpic").val();
+			//read_script(url);
+			var s1 = new SWFObject("{$content}","single","640","350","7");
+			s1.addParam("allowfullscreen","true");
+			s1.addVariable("file",url);
+			s1.addVariable("image",tbpic);
+			s1.addVariable("width","640");
+			s1.addVariable("height","350");
+			s1.write("player1");
+			$('#video').html('hello,friends');
+			//})
+			</script>
+			</div>
+		</div>		
+  </div>
+	<div class="p01_r">
+		<ul class="video_list" id="video_list">
+			{pc:content action="lists" moreinfo="1" catid="$catid" num="16" order="id DESC" page="$page"}
+			{loop $data $r}
+			<li onclick="read_script('{$r[content]}','{$r[title]}','{date('Y-m-d',$r[inputtime])}','{$r[thumb]}',' {$r[description]} ');">
+				<div class="video_r_pic"><a href="javascript:;" class="btn_play"><img src="{$r[thumb]}" width="120" height="83" alt="{$r[title]}"></a></div>
+				<div class="video_r_info">
+					<p class="video_r_lab_new"></p>
+					<p class="video_r_txt"><a href="javascript:;" class="btn_play">{$r[title]}</a></p>
+					<div class="video_r_time clearfix"><span class="video_r_time_span">{date('Y-m-d',$r[inputtime])}</span></div>
+				</div>
+			</li>
+			{/loop}
+			{/pc}
+		</ul>
+		<div class="tcimg"><a href="http://erp.aiqin.com:8080/tc/" target="_blank"><img src="{IMG_PATH}tc.jpg"></a></div>
+	</div>
+	</div>
+           
+            <div class="pages">{$pages}</div>
+        </div>
+    </div>
+{template "content","footer"}
+</div>
+</body>
+</html>

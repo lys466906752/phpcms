@@ -1,0 +1,9 @@
+栏目首页
+
+{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			{if $s[catid]!=28}
+			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/if}
+			{/loop}
+			{/pc}

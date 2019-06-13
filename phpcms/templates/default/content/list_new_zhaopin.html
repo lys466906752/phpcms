@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="container">
+{template "content","header"}
+   	<div class="banner">
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+    </div>
+	{if $catid==149}
+	<div style="height:15px;overflow:hidden;clear:both;"></div>
+	{else}
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			{if $s[catid]==20}
+			<li class="{if $s[catid]==$cid}curn{/if}"><a href="/ry_pp">{$s[catname]}</a></li>
+			{else}
+			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/if}
+			{/loop}
+			{/pc}
+		</ul>
+	</div>
+    </div>
+	{/if}
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu {if $catid==66 or $catid==150}lanmu02{/if}"><span class="zh">{$CATEGORYS[$catid][catname]}</span><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> > <a href="http://www.aiqin.com/qzzp/qz_jz/">人才招聘</a>><a href="http://www.aiqin.com/qzzp/qz_cq/">广州招聘</a>>列表</span></div>
+		<div class="content">
+			{if $catid==157 or $catid==158}
+			<div class="zhaopin">
+				<div class="clearfix">
+					<div class="zhaopin_l">
+						<div class="div_a"><img src="{IMG_PATH}zp_06.jpg" width="205" height="565" alt="招聘海报"/></div>
+					</div>
+					<div class="zhaopin_r">
+						<div class="div_a {if $catid==157}div_jz{elseif $catid==158}div_cq{/if}">想要"实现自己的价值"吗？请加入我们，和我们一起成长吧！</div>
+						<div class="zhiwei">
+							<div class="gdtiao">
+								{pc:content action="lists" moreinfo="1" catid="$catid" num="6"  order="listorder ASC" page="$page"}
+								<div id="pl_srcoll">
+									<div style="padding:5px;">
+									{loop $data $r}
+									<div class="zw_item clearfix {if $catid==157}zw_jz{elseif $catid==158}zw_cq{/if}">
+										<div class="zw_iteml"><div>{$r[title]}</div></div>
+										<div class="zw_itemr info">
+											<div>{str_cut($r['description'],200)}</div>
+											<div style="text-align:right; cursor:pointer;">更多详情》》</div>
+										</div>
+										<div class="zw_itemr content" style="display:none;">
+											{$r[content]}
+											<div class="hide_content" style="text-align:right; cursor:pointer;">收起》》</div>
+										</div>
+									</div>
+									{/loop}
+									</div>
+								</div>
+								{/pc}
+								<script type="text/javascript">
+								$(document).ready(function(){               
+									
+									$(".info").click(function(){
+										$(this).slideUp().siblings(".content").slideDown();
+									})
+									$(".hide_content").click(function(){
+										$(this).parent(".content").slideUp().siblings(".info").slideDown();
+									})
+								});
+								</script>
+							</div>
+						</div>
+						<div class="pages">{$pages}</div>
+					</div>
+				</div>
+			</div>
+			{/if}
+        </div>
+    </div>
+{template "content","footer"}
+</div>
+</body>
+</html>

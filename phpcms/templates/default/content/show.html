@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$url); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+</head>
+<body>
+{template "content","header"}
+	<div class="banner">
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+		{if $catid==54 || $catid==55 || $catid==58 || $catid==163 || $catid==169}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}zs_new_ban.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{else}
+		<div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{/if}
+    </div>
+	{if ($catid==149 || $catid==169)}
+	<div style="height:15px;overflow:hidden;clear:both;"></div>
+	{else}
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			{if $s[catid]==20}
+			<li class="{if $s[catid]==$cid}curn{/if}"><a href="/ry_pp">{$s[catname]}</a></li>
+			{elseif $s[catid]!=28}
+			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/if}
+			{/loop}
+			{/pc}
+		</ul>
+	</div>
+    </div>
+	{/if}
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu"><span class="zh">{$CATEGORYS[$pid][catname]}</span><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> &gt; {catpos($catid)} 正文</span></div>    	
+		<div class="content">
+        	<div class="danye">
+            	<h1 class="art_tit">{$title}</h1>
+                <div class="detail_attr"><span>来源：{$copyfrom}</span><span>作者：aiqin</span><span class="tags">Tag：{loop $keywords $keyword}<a href="{APP_PATH}tags-{urlencode($keyword)}-1.html" class="blue">{$keyword}</a>{/loop}</span><span>点击量：<span id="hits"></span></span><span>发布时间：{$inputtime}</span></div>
+            	<div class="conins">
+				{$content}
+
+				</div>
+            </div>
+
+        </div>
+		<p style="border: 1px solid #ccc">(注：本文来源于爱亲<span style="font-weight: 600;">母婴店加盟</span> <span id="add_url"></span>，转载请注明出处!)</p>
+         <script>
+         	$('#add_url').html(document.location.href)
+         </script>
+
+        
+        <style>
+        	.add_new { width:990px; margin:20px auto; overflow: hidden;}
+        	.add_new  ul li {
+        		float:left;
+/*				background: url(http://www.aiqin.com/statics/images/news_tubiao.png) no-repeat left center;*/
+			    border-bottom: 1px dotted #999999;
+			    height: 32px;
+/*			    padding: 0px 30px;*/
+			    width: 310px;
+			    line-height: 32px;
+			    font-size: 14px;
+			    overflow: hidden;
+			    margin-right: 30px;
+
+        	 }
+			.add_new  ul {width:120%;}	
+        	 .add_new h2 {
+        	 	font-size: 16px;
+        	 	border-bottom: 1px solid #999999;
+        	 	line-height: 58px;
+        	 }
+        </style>
+        <div class="add_new">
+        	<h2>相关阅读</h2>
+        	<ul>
+				{pc:content action="lists" moreinfo="1" catid="$catid" num="9" order="inputtime DESC" }   
+				{loop $data $r}    
+		          <li><a href="{$r[url]}" target="_blank" data="32">{str_cut($r[title],80,'...')}</a></li>        
+		        {/loop}   
+		        {/pc} 
+
+        	</ul>
+        </div>
+		<div class="zxjm_text">       
+			<div id="liuyan"> 		
+	     		<div class="navlist" id="liuyan_msg">
+		            <a href="javascript:;" id="liuyan"><h1 style="text-align:center; font:30px 'Microsoft YaHei'" ;="">在线加盟申请表</h1></a>
+		            <div class="detail meg">
+		                <form action="http://www.aiqin.com/index.php?m=guestbook&amp;c=index&amp;a=register&amp;siteid=1" method="post" name="gForm" id="myform">
+						<!--<form action="http://m.aiqin.com/guestbook.php" method="post" name="gForm">-->
+		             		<h3>留言内容（必填）</h3>
+		              		<textarea placeholder="留言内容......" name="content"></textarea>
+		              		<div style="overflow: hidden;">
+		              			<div class="box mar"><span class="meg1"></span><input placeholder="你的姓名" name="user" type="text"></div>
+		               			<div class="box"><span class="meg2"></span><input placeholder="你的电话" name="tel" type="text"></div>
+		                 		<div class="box1"><span class="meg4"></span><input placeholder="你的地址" name="address" maxlength="80" type="text"></div>
+		               		</div>
+		              		<input name="dosubmit" type="text" style="display:none;">
+		              		<input id="url" name="url" type="hidden" value="http://www.aiqin.com/guestbook.html">
+		                    <input id="referer" name="referer" type="hidden" value="http://www.aiqin.com/cooperation/newshop/">
+		                    <input id="sid" name="sid" type="hidden" value="undefined">
+		                    <input id="comeid" name="comeid" type="hidden" value="103">
+		              		<a class="button" style=" display:block; text-align:center; line-height:50px; height: 50px; background: rgb(0, 147, 213) none repeat scroll 0% 0%; cursor: pointer; color: rgb(255, 255, 255); font-size: 16px; width: 10%; margin: 30px 45%;" id="gBtn">提交</a>
+		                </form>
+		            </div>
+	            </div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+<script>
+	var url=window.location.href;
+	var referer=document.referrer;
+	var sid=request(url);
+	if (sid=='undefined') sid='';
+	if (sid && sid!='undefined'){
+		comeid=101;
+	}else{
+		comeid=103;
+	}
+	function request(urlzszxcm) {
+		var szszxcm = urlzszxcm.indexOf("?");
+		if (szszxcm != -1) {
+			var srczszxcm = urlzszxcm.substring(szszxcm + 1);
+			if (srczszxcm) {
+				return srczszxcm;
+			}else{
+				return '';
+			}
+		}
+	}
+	document.getElementById('url').value=url;
+	document.getElementById('referer').value=referer;
+	document.getElementById('sid').value=sid;
+	document.getElementById('comeid').value=comeid;
+</script>
+<script src="http://gbook.aiqin.com/jquery.mloading.js"></script>
+<link rel="stylesheet" href="http://gbook.aiqin.com/jquery.mloading.css">
+<script>
+    $(document).ready(function(){
+			/*判断输入内容开始*/
+			  $('#gBtn').click(function(){
+		          var reg = /^[\u4E00-\u9FA5]+$/; 
+		          var filter  = /^1[3|4|5|7|8][0-9]\d{8}$/;
+		          var fe = /^0\d{2,3}-?\d{7,8}$/;
+		          var num = /^[1-9]*$/;
+		          var isIndex = /^[0|1]$/;			  	
+				if($.trim($('textarea[name=content]').val())==''){ alert('留言内容不能为空');return; }
+				if($.trim($('input[name=user]').val())==''){ alert('你的姓名不能为空');return; }
+				if(!reg.test($.trim($('input[name=user]').val()))){alert('姓名必须为中文');return;}
+				if($.trim($('input[name=tel]').val())==''){ alert('电话不能为空');return; }
+	            if(!isIndex.test($.trim($('input[name=tel]').val())[0])){
+	                alert('座机以“0”开头,手机号码以“1”开头');
+	                return;
+	            }
+				if(!isIndex.test($.trim($('input[name=tel]').val())[0])){
+				    		alert('座机以“0”开头,手机号码以“1”开头');
+				    		return;
+				}
+				if($.trim($('input[name=tel]').val())[0]==0){
+	                  if(!fe.test($.trim($('input[name=tel]').val()))){
+	                     alert('座机格式不正确 如"01088888888,010-88888888"');
+	                     return;
+	            	}   
+                 };
+                if($.trim($('input[name=tel]').val())[0]==1){
+                    if(!filter.test($.trim($('input[name=tel]').val())) ){ alert('手机号码格式不正确'); return; }
+                }
+
+
+
+              	$("body").mLoading();
+				$('form[name=gForm]').submit();
+			  })
+			/*判断输入内容结束*/
+    })   
+</script>
+
+        </div>
+
+    </div>
+    </div>
+	<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+{template "content","footer"}
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin","sqq"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","sqq"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</body>
+</html>

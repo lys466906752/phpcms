@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>热门标签-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+{if $catid==78}	
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+{/if}
+
+{template "content","header"}
+<div class="main">
+<ul>
+{loop $infos $info}
+	<li><a href="{APP_PATH}tags-{urlencode($keyword)}-1.html">{$info['keyword']}</a></li> 
+{/loop}
+</ul>
+</div>
+{template 'content', 'footer'}

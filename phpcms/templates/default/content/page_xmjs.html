@@ -1,0 +1,173 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="http://www.aiqin.com/statics/css/introduceStyle.css">
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />	
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$CAT['url']); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+{if $catid==69}
+<link href="{CSS_PATH}carousel_a.css" rel="stylesheet" type="text/css" />
+{else}
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+{/if}
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+{if $catid==68 or $catid==70 or $catid==45}
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+{/if}
+{if $catid==68 or $catid==70}
+<script src="{JS_PATH}swfobject.js" type="text/javascript"></script>
+{/if}
+<script type="text/javascript" src="{JS_PATH}jquery.SuperSlide.2.1.1.js"></script>
+</head>
+
+<body>
+{template "content","header"}
+	<div class="banner">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+		{if $catid==31}
+		  <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}zs_new_ban.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{else}
+		  <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{/if}
+	</div>
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			{if $s[catid]==20}
+			<li class="{if $s[catid]==$cid}curn{/if}"><a href="/ry_pp">{$s[catname]}</a></li>
+			{elseif $s[catid]!=161 &&  $s[catid]!=36 && $s[catid]!=55 && $s[catid]!=58}
+			<li class="{if $s[catid]==$catid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/if}
+			{/loop}
+			{/pc}
+		</ul>
+	</div>
+    </div>
+		<div class="headline introduce">
+			<h1>项目介绍</h1>
+			<p><a href="http://www.aiqin.com">首页></a><a href="http://www.aiqin.com/cooperation">加盟合作</a></p>
+		</div>
+		<div class="infant introduce">
+			<div class="infant-article">
+				<div class="inf-muying">
+					<h3>爱亲母婴专卖店</h3>
+					<p>HIGH-END BRAND</p>
+				</div>
+				<div class="inf-cha">
+					<p>携手一线明星代言，品牌形象全线升级</p>
+					<span>爱亲母婴注重品牌的建设和升级，拥有完整的品牌体系，包括广告语、定位语、品牌理念、吉祥物、官网、VI、SI等，也是国家商务部“特许经营资格备案”的企业。</span>
+					<a href="http://www.aiqin.com/interaction/goldenitem/youshi/">>>更多详请</a>
+				</div>
+			</div>
+			<div class="inf-img">
+				<img src="http://www.aiqin.com/statics/imagesa/002_03.jpg" class="inf-img-1">
+				<img src="http://www.aiqin.com/statics/imagesa/003_03.jpg" class="inf-img-2">
+			</div>
+
+		</div>
+	</div>
+	<div class="swimming introduce">
+		<div class="swimming-l">
+			<img src="http://www.aiqin.com/statics/imagesa/yl1.jpg" class="swimming-l-1">
+			<img src="http://www.aiqin.com/statics/imagesa/yl2.jpg" class="swimming-l-2">
+		</div>
+		<div class="swimming-r">
+				<div class="inf-muying">
+					<h3>爱亲游泳馆</h3>
+					<p>HIGH-END BRAND</p>
+				</div>
+				<div class="inf-cha">
+					<p>进口水暖设备，好品质铸就好口碑</p>
+					<span>爱亲儿童泳游馆包含：儿童游泳、婴儿抚触、儿童体操、水育课程等多项内容，水育早教课时化，发展会员牢牢锁定消费群体，实现门店盈利。</span>
+					<a href="http://www.aiqin.com/interaction/goldenitem/youyong/">>>更多详请</a>
+				</div>	
+		</div>			
+	</div>
+	<div class="play introduce">
+		<div class="swimming-l">
+			<img src="http://www.aiqin.com/statics/imagesa/yy1.jpg" class="swimming-l-1">
+			<img src="http://www.aiqin.com/statics/imagesa/yy2.jpg" class="swimming-l-2">
+		</div>
+		<div class="swimming-r">
+				<div class="inf-muying">
+					<h3>爱亲游乐场</h3>
+					<p>HIGH-END BRAND</p>
+				</div>
+				<div class="inf-cha">
+					<p>体验式个性消费，寓教于乐打动顾客</p>
+					<span>爱亲游乐场不只是招揽顾客，提高进店率的工具，更是门店高盈利项目。爱亲游乐场包含：益智类、电玩类、冒险类等6大类项目，满足不同孩子的兴趣需要。</span>
+					<a href="http://www.aiqin.com/interaction/goldenitem/leyuan/">>>更多详请</a>
+				</div>	
+		</div>
+	</div>	
+		<div class="appreciation introduce">
+			<div class="appreciation-frame"></div>
+				<div class="inf-muying">
+					<h3>增值性项目</h3>
+				</div>
+				<div class="appreciation-1 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/youshi/">
+					<img src="http://www.aiqin.com/uploadfile/2015/0827/20150827112547332.jpg">
+<!-- 					<p>爱亲母婴专卖店</p>
+ -->					</a>
+				</div>
+				<div class="appreciation-2 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/zaojiao/">
+					<img src="http://www.aiqin.com/uploadfile/2015/0827/20150827112622600.jpg">
+					</a>
+				</div>
+				<div class="appreciation-3 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/sheying/">
+					<img src="http://www.aiqin.com/uploadfile/2015/0827/20150827112641403.jpg">
+					</a>
+				</div>
+				<div class="appreciation-4 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/qiming/">
+					<img src="http://www.aiqin.com/uploadfile/2015/0827/20150827112903248.jpg">
+					</a>
+				</div>
+				<div class="appreciation-5 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/youyong/">
+					<img src="http://www.aiqin.com/uploadfile/2015/0827/20150827112704775.jpg">
+					</a>
+				</div>
+				<div class="appreciation-6 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/leyuan/">
+					<img src="http://www.aiqin.com/uploadfile/2015/0827/20150827112729837.jpg">
+					</a>
+				</div>
+				<div class="appreciation-4 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/tuinanshi/">
+					<img src="http://www.aiqin.com/statics/images/988800000000000_03.png">
+					</a>
+				</div>
+				<div class="appreciation-5 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/yuyingshi/">
+					<img src="http://www.aiqin.com/statics/images/988800000000000_04.png">
+					</a>
+				</div>
+				<div class="appreciation-6 appreciation-img">
+					<a href="http://www.aiqin.com/interaction/goldenitem/cuirushi/">
+					<img src="http://www.aiqin.com/statics/images/988800000000000_05.png">
+					</a>
+				</div>
+		</div>			
+{template "content","footer"}
+</body>
+</html>

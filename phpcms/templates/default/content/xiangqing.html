@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$CAT['url']); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+{if $catid==69}
+<link href="{CSS_PATH}carousel_a.css" rel="stylesheet" type="text/css" />
+{else}
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+{/if}
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+{if $catid==68 or $catid==70 or $catid==45}
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+{/if}
+{if $catid==68 or $catid==70}
+<script src="{JS_PATH}swfobject.js" type="text/javascript"></script>
+{/if}
+<script type="text/javascript" src="{JS_PATH}jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+{template "content","header"}
+	<div class="headline introduce">
+			<h1>项目介绍</h1>
+			<p><a href="http://www.aiqin.com">首页></a><a href="javascript:;">加盟合作</a></p>
+	</div>
+	<div class="particulars-a">
+		<div class="par-biaoti"><img src="http://www.aiqin.com/statics/imagesa/202_03.png"></div>
+		<p class="par-wenben">爱亲游泳馆主营0-6岁宝宝沐浴、抚触、游泳、理发、游乐、diy制作、主题亲子活动、成长系列照片和dv专业跟踪拍摄。提供游泳馆全套配套设备：智能温控燃气炉、恒温热蓄水供热系统、沙缸、水泵、紫外线杀菌消毒、毛发过滤器、按摩台、沐浴台、智能体检婴儿秤、泳圈、一次性浴膜等。<br><span style="text-indent: 2em;display: block;">拥有宽敞舒适的泳疗大厅和日本进口恒温地暖，引进国内最先进管理及技术人才，专业的水育管理和专业指导培训，整店输出，零经验也可快速开店，创业致富。</span></p>
+		<img src="http://www.aiqin.com/statics/imagesa/203_03.png" class="par-abs">
+	</div>
+	<div class="particulars-img">
+		<div class="particulars-1">
+			<img src="http://www.aiqin.com/statics/imagesa/204_03.png" class="particulars-img-1">
+			<img src="http://www.aiqin.com/statics/imagesa/205_03.png" class="particulars-img-2">
+			<img src="http://www.aiqin.com/statics/imagesa/206_03.png" class="particulars-img-3">
+		</div>
+		<div class="particulars-2">
+			<img src="http://www.aiqin.com/statics/imagesa/208_10.png" class="particulars-img-4">
+			<img src="http://www.aiqin.com/statics/imagesa/207_06.png" class="particulars-img-5">
+		</div>
+		<div class="particulars-3">
+			<img src="http://www.aiqin.com/statics/imagesa/206_03.png" class="particulars-img-6">
+			<img src="http://www.aiqin.com/statics/imagesa/209_10.png" class="particulars-img-7">
+
+		</div>
+	</div>
+{template "content","footer"}
+
+
+</body>
+</html>

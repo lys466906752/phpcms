@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}" />
+<meta name="description" content="{$SEO['description']}" />
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$CAT['url']); ?>">
+<script src="http://www.aiqin.com/statics/js/masonry-docs.min.js"></script>
+<!--跳转按钮开始-->
+{if $catid==137}
+{
+	<script language="javascript">
+			window.location= "http://www.aiqin.com/cooperation/policy/";
+	</script>
+}
+{/if}
+<!--跳转按钮结束-->
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+{if $catid==78}	
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+
+{/if}
+</head>
+<body>
+<div class="container">
+{template "content","header"}
+   	<div class="banner">
+        {if $catid==137}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}zs_new_ban.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{else}
+		<div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+		{/if}
+    </div>
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{if $catid==137}
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($catid) $s}
+			{if $s[catid]!=161 &&  $s[catid]!=36}
+			<li class="{if $s[catid]==$catid}curn{/if} aaa"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/if}
+			{/loop}
+			{/pc}
+			{else}
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{loop subcat($pid) $s}
+			<li class="{if $s[catid]==$catid}curn{/if} ccc" ><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/loop}
+			{/pc}
+			{/if}
+		</ul>
+	</div>
+    </div>
+	<div class="main">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu"><h1 class="zh">{$CATEGORYS[$catid][catname]}</h1><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> > {catpos($catid)} 列表</span></div>
+		<div class="content">
+			{if $catid==60}
+			<div class="zhaopin">
+				<div class="clearfix">
+					<div class="zhaopin_l">
+						<div class="div_a"><img src="{IMG_PATH}zp_06.jpg" width="205" height="565" alt=""/></div>
+					</div>
+					<div class="zhaopin_r">
+						<div class="div_a">想要"实现自己的价值"吗？请加入我们，和我们一起成长吧！</div>
+						<div class="zhiwei">
+							<div class="gdtiao">
+								{pc:content action="lists" moreinfo="1" catid="$catid" num="6" order="id DESC" page="$page"}
+								<div id="pl_srcoll">
+									<div style="padding:5px;">
+									{loop $data $r}
+									<div class="zw_item clearfix">
+										<div class="zw_iteml"><div>{$r[title]}</div></div>
+										<div class="zw_itemr info">
+											<div>{str_cut($r['description'],200)}</div>
+											<div style="text-align:right; cursor:pointer;">更多详情》》</div>
+										</div>
+										<div class="zw_itemr content" style="display:none;">
+											{$r[content]}
+											<div class="hide_content" style="text-align:right; cursor:pointer;">收起》》</div>
+										</div>
+									</div>
+									{/loop}
+									</div>
+								</div>
+								{/pc}
+								<script type="text/javascript">
+								$(document).ready(function(){               
+									
+									$(".info").click(function(){
+										$(this).slideUp().siblings(".content").slideDown();
+									})
+									$(".hide_content").click(function(){
+										$(this).parent(".content").slideUp().siblings(".info").slideDown();
+									})
+								});
+								</script>
+							</div>
+						</div>
+						<div class="pages">{$pages}</div>
+					</div>
+				</div>
+			</div>
+			{elseif $catid==49}
+			<div class="zixun">
+				<div class="news_con">
+					<ul class="clearfix">
+						{pc:content action="lists" catid="$catid" num="9" order="id DESC" page="$page"}
+						{loop $data $r}
+						<li>
+							<a href="{$r[url]}" title="{$r[title]}">
+								<p><img src="{thumb($r[thumb],295,171)}" width="295" height="171" alt="{$r[title]}" /></p>
+								<p class="p2" style="text-align:center;">{$r[title]}</p>
+							</a>
+						</li>
+						{/loop}
+						{/pc}
+					</ul>
+				</div>
+				<div class="pages">{$pages}</div>
+			</div>
+			{elseif $catid==137}
+			<div class="danye">
+				{pc:get sql="SELECT * FROM v9_page where catid=31"}
+					{loop $data $val}
+					{$val[content]}
+					{/loop}
+				{/pc}
+				
+            </div>
+			{elseif $catid==78}
+			<div class="danye">
+				<div class="netsalse">
+				<div class="map">
+				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"height="450" width="600"><param name="movie" value="http://www.aiqin.com/uploadfile/map.swf" /><param name="quality" value="high" /><param name="wmode" value="transparent" /><embed height="450" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="http://www.aiqin.com/uploadfile/map.swf" type="application/x-shockwave-flash" width="600" wmode="transparent"></embed></object></div>
+				<div style="position: relative"><img src="http://www.aiqin.com/uploadfile/2014/0124/20140124031933296.jpg" style="position: absolute; top: -100px;" /></div>
+				<div class="netsalse_content"><!--待添加内容简介--></div>
+				</div>
+            </div>
+			{elseif $catid==74}
+			<div class="zixun">
+				<style>
+					.content {width: 660px; margin: 0 auto;background: url(http://www.aiqin.com/statics/images/jpbj_10.png) no-repeat;padding-top:88px; background-position:center 0px; }
+				</style>
+				<div class="news_con news_con02">
+					<ul class="clearfix">
+						
+						{pc:content action="category" catid="74" num="10" siteid="$siteid" order="listorder ASC" return=subdata}
+						{loop $subdata $sub}
+						<li>
+							<a href="{$sub[url]}" title="{$sub[catname]}">
+							{pc:get sql="SELECT * FROM v9_page where catid=$sub[catid]"}
+							{loop $data  $val}
+							<p><img src="{$val[thumb]}" width="295" height="" alt="{$sub[catname]}" /></p>
+							{/loop}
+							{/pc}
+							</a>
+						</li>
+						{/loop}
+						{/pc}
+						<li style="margin-left: 185px !important"><a href="javascript:;"><img src="http://www.aiqin.com/statics/images/bblf_03.jpg"/ style="width: 100%;"></a></li>					
+					</ul>
+
+				</div>
+				
+			</div>
+			{else}
+        	<div class="{if $catid==54 or $catid==23}school{else}news{/if}">
+            	<div class="{if $catid==55}model{elseif $catid==54 or $catid==23}box_b clearfix{else}news_list{/if}">
+					{if $catid==54 or $catid==23}<div class="xinde">{/if}
+					{if $catid==58}<div class="faq">{/if}
+					{if $catid==54 or $catid==23}{pc:content action="lists" catid="$catid" num="40" order="id DESC" page="$page"}
+					{else}{pc:content action="lists" moreinfo="1" catid="$catid" num="6" order="id DESC" page="$page"}{/if}
+                	<ul{if $catid==54 or $catid==23} class="list-xinde"{/if}>
+						{loop $data $r}
+						{if $catid==55}
+						<li>
+							<span class="fl"><a href="javascript:void();" title="{$r[title]}"><img src="{thumb($r[thumb],240,250)}" width="240" height="250" alt="{$r[title]}" /></a></span>
+							<div class="fr">
+								<p class="p1"><a href="javascript:void();" title="{$r[title]}">{$r[title]}</a></p>
+								<p class="p2"></p>
+								<div class="p3">
+								<p style="text-indent:2em" class="MsoNormal">
+									{str_cut($r['description'],500)}
+								</p>
+								<p style="display:none">3</p>
+								</div>
+							</div>
+						</li>
+						{elseif $catid==54 or $catid==23}
+						<li><span class="jj"><a title="{$r[title]}">{$r[title]}</a></span><span class="sj">{date('Y-m-d',$r[inputtime])}</span></li>
+						{elseif $catid==58}
+						<li>
+						<div class="p1">{$r[title]}</div>
+						<div class="p2">{$r[content]}</div>
+						</li>
+						{else}
+						<li class="clearfix">
+                        	<div class="img aaa" {$catid}><a href="{$r[url]}" target="_blank"{title_style($r[style])}><img src="{thumb($r[thumb],178,118)}" alt="{$r[title]}" width="178" height="118"/></a></div>
+                            <div class="nr">
+                                <div class="div_a"><a href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a><span class="sj">{date('Y-m-d',$r[inputtime])}</span></div>
+                                <div class="div_b">{str_cut($r['description'],200)}</div>
+                            </div>
+                        </li>
+						{/if}
+						{/loop}                        						                        
+                    </ul>
+					{/pc}
+					{if $catid==54}</div>{/if}
+					{if $catid==23}</div>{/if}
+					{if $catid==58}</div>{/if}
+                    <div class="pages">{$pages}</div>
+                </div>
+            </div>
+			{/if}
+        </div>
+    </div>
+{if $catid==74}
+   	<div class="banner">
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}jpxm_bg.png" alt="" /></a></div></div>
+    </div>
+{/if}
+{template "content","footer"}
+</div>
+</body>
+</html>

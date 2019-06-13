@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}</title>-->
+<title>{$SEO['title']}-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="<?php echo str_replace('www.aiqin.com','m.aiqin.com',$url); ?>">
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+</head>
+<body>
+{template "content","header"}
+	<div class="banner">
+        {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$pid}.jpg" alt="" /></a></div></div>
+    </div>
+	<div class="out_menu">
+	<div class="menu">
+		<ul>
+			{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+			{pc:content action="category" catid="$pid" num="20" siteid="$siteid" order="listorder ASC" return=subdata}
+			{loop $subdata $s}
+			{if $s[catid]!=28}
+			<li class="{if $s[catid]==$cid}curn{/if}"><a href="{$s[url]}">{$s[catname]}</a></li>
+			{/if}
+			{/loop}
+		</ul>
+	</div>
+    </div>
+	<div class="main" data="1">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+    	<div class="lanmu"><span class="zh">{$CATEGORYS[$pid][catname]}</span><span class="en"></span><span class="dh"><a href="{siteurl($siteid)}">首页</a> &gt; {catpos($catid)} 正文</span></div>   
+		<div class="content">
+        	<div class="danye">
+            	<div class="art_tit">{$title}<a href="javascript:history.go(-1);" class="backhome font14 zhs">返回上一级</a></div>
+                <div class="detail_attr"><span>来源：{$copyfrom}</span><span>作者：aiqin</span><span class="tags">Tag：{loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" class="blue">{$keyword}</a>{/loop}</span><span>点击量：<span id="hits"></span></span><span>发布时间：{$inputtime}</span></div>
+            	<div class="conins {if $catid==50}cuxiao_info_img{/if}">
+				{$content}
+				</div>
+            </div>
+			
+        </div>
+    </div>
+	
+	<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+{template "content","footer"}
+</body>
+</html>

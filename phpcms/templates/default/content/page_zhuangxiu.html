@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$SEO['title']} -爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}jiameng_zs.css" rel="stylesheet" type="text/css" />
+<style>
+ul,li {padding:0px; margin:0px;}
+ul li a{ text-decoration:none;}
+</style>
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+{if $catid==69}
+<link href="{CSS_PATH}carousel_a.css" rel="stylesheet" type="text/css" />
+{else}
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+{/if}
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+{if $catid==68 or $catid==70 or $catid==45}
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+{/if}
+{if $catid==68 or $catid==70}
+<script src="{JS_PATH}swfobject.js" type="text/javascript"></script>
+{/if}
+<script type="text/javascript" src="{JS_PATH}jquery.tools.tabs.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+{template "content","header"}
+<div class="zx_top">
+	<div class="zx_con">
+        <div class="zx_nav">
+            <ul>
+            {php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+            {loop subcat($pid) $s}
+            {if $s[catid]==20}
+            <li class="{if $s[catid]==$cid}curn{/if}"><a href="/ry_pp">{$s[catname]}</a></li>
+            {elseif $s[catid]!=161 &&  $s[catid]!=36 &&  $s[catid]!=23 && $s[catid]!=28 && $s[catid]!=55 && $s[catid]!=58}
+            {if  $s[catid]!=161 &&  $s[catid]!=36 &&  $s[catid]!=23 && $s[catid]!=58}
+            <li class="{if $s[catid]==$catid}curn{/if}" {if $s[catid]==$catid}style="display:none"{/if}><a href="{$s[url]}">{$s[catname]}</a></li>
+            {/if}
+            {/if}
+            {/loop}
+            {/pc}
+             </ul>
+        </div>
+        			<!--banner开始-->
+				<div class="zx_banner">
+					<!--<div><a href="#"><img src="{IMG_PATH}jiameng_zs/zx_pic.jpg" alt="" /></a></div>-->
+					<div><a href="#"><img src="{IMG_PATH}jiameng_zs/zx_pic1.jpg" alt="" /></a></div>
+					<div><a href="#"><img src="{IMG_PATH}jiameng_zs/zx_pic2.jpg" alt="" /></a></div>
+					<div><a href="#"><img src="{IMG_PATH}jiameng_zs/zx_pic3.jpg" alt="" /></a></div>
+				</div>
+					<div class="tabs">
+						<!--<a href="#"></a>-->
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+			 </div>
+			 <script>
+				$(function(){
+					//幻灯片
+					$(".tabs").tabs(".zx_banner > div", {
+						effect: 'horizontal',//slide
+						fadeInSpeed: 700,
+						fadeOutSpeed: 700,
+						rotate: true,
+						autoplay : true,
+						interval:7000
+					}).slideshow();
+					$(".tabs").data('slideshow').play();
+				});
+			 </script>
+			   <!--banner开始-->
+     </div>
+</div>
+
+<div class="zx_bg1 cl">
+	<div class="zx_con">
+        <div class="zx_bg1tit"><img alt="" src="{IMG_PATH}zhuangxiu/zx_bg1tit.png" /></div>
+        <div class="nTab bg2">
+            <ul id="myTab">
+                <li class="normal" onMouseOver="nTabs(this,0);">经济版</li>
+                <li class="active" onMouseOver="nTabs(this,1);">标准版 </li> 	
+                <li  class="normal" onMouseOver="nTabs(this,2);">豪华版</li>	      
+            </ul>
+            <div class="TabContent cl"> 
+                <div id="myTab_Content0" class="none">
+                     <div class="zx_bg1_img">
+                     <div class="bd">
+                    	<ul>
+                        <li><a href="javascript:void(0);">
+                        	<img alt="" src="{IMG_PATH}zhuangxiu/jj.jpg" />
+                        </a></li>
+                        <li><a href="javascript:void(0);">
+                        <img alt="" src="{IMG_PATH}zhuangxiu/jj1.jpg" />
+                        </a></li>
+                        <li><a href="javascript:void(0);">
+                        	<img alt="" src="{IMG_PATH}zhuangxiu/jj2.jpg" />
+                        </a></li>
+                       </ul></div>
+                        <div class="zx_banner_btn">
+                        <a class="prev" href="javascript:void(0);"></a>
+                        <a class="next" href="javascript:void(0);"></a>
+						</div>
+                      
+                    </div>
+                    <div class="zx_bg1_txt">
+				           <div class="zx_bg1_div1">经济版  |</div>
+							<div class="zx_bg1_div2">
+									<div>公司提供经济版货架 + 发光字 + 铝塑板 （店面装修自理）</div>
+							</div>
+                  
+					</div>            
+                
+                </div>
+                <div id="myTab_Content1" class="b">
+                	<div class="zx_bg1_img">
+                    <div class="bd">
+                    	<ul>
+                        <li><a href="javascript:void(0);">
+                        	<img alt="" src="{IMG_PATH}zhuangxiu/bzh.jpg" />
+                        </a></li>
+                        <li><a href="javascript:void(0);">
+                        <img alt="" src="{IMG_PATH}zhuangxiu/bzh1.jpg" />
+                        </a></li>
+                        <li><a href="javascript:void(0);">
+                        <img alt="" src="{IMG_PATH}zhuangxiu/bzh2.jpg" />
+                        </a></li>                        
+                        </ul></div>
+                    <div class="zx_banner_btn">
+                        <a class="prev" href="javascript:void(0);"></a>
+                        <a class="next" href="javascript:void(0);"></a>
+					</div>                    </div>
+                    <div class="zx_bg1_txt">
+                    		<div class="zx_bg1_div1"> 标准版  |</div>
+							<div class="zx_bg1_div2">
+									<div>公司提供标准版货架+发光字+铝塑板+灯具（可选择是否由公司装修）</div>
+							</div>
+					
+					</div>
+                </div>
+                <div id="myTab_Content2" class="none">
+                
+                     <!--豪华版幻灯片特效-->
+                    <div class="zx_bg1_img">
+                        <div class="bd">
+                            <ul>
+                            <li><a href="javascript:void(0);">
+                            <img alt="" src="{IMG_PATH}zhuangxiu/hh.jpg" />
+                            </a></li>
+                            <li><a href="javascript:void(0);">
+                            <img alt="" src="{IMG_PATH}zhuangxiu/hh1.jpg" />
+                            </a></li>
+                            <li><a href="javascript:void(0);">
+                            <img alt="" src="{IMG_PATH}zhuangxiu/hh2.jpg" />
+                            </a></li>                            
+                            </ul>
+                        </div>
+                    <div class="zx_banner_btn">
+                        <a class="prev" href="javascript:void(0);"></a>
+                        <a class="next" href="javascript:void(0);"></a>
+					</div>
+                    </div>
+                     <!--豪华版幻灯片特效-->
+                    <div class="zx_bg1_txt">
+							<div class="zx_bg1_div1"> 豪华版  |</div>
+							<div class="zx_bg1_div3">
+									<div>1、公司提供豪华版货架+发光字+铝塑板+灯具；</div>
+									<div>2、公司负责统一负责店面装修，共13项（不含卷帘门、地暖、电器（空调）与消防部分）；</div>
+									<div>3、工期约15个工作日（需满足公司规定要求，店铺面积100平以内，其中店铺面积每增加10平，装修工期增加1天） 。</div>
+							</div>
+                    </div>            
+                
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$(".prev,.next").hover(function(){
+		$(this).stop(true,false).fadeTo("show",0.9);
+	},function(){
+		$(this).stop(true,false).fadeTo("show",0.4);
+	});
+	
+	$(".zx_bg1_img").slide({
+		titCell:".hd ul",
+		mainCell:".bd ul",
+		effect:"fold",
+		interTime:3500,
+		delayTime:500,
+		autoPlay:true,
+		autoPage:true, 
+		trigger:"click" 
+	});
+
+});
+</script>
+
+<script>
+	
+function nTabs(thisObj,Num){
+	if(thisObj.className == "active")return;
+			var tabObj = thisObj.parentNode.id;
+			var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+			for(i=0; i <tabList.length; i++)
+			{
+			  if (i == Num)
+			  {
+			   thisObj.className = "active"; 
+				  document.getElementById(tabObj+"_Content"+i).style.display = "block";
+			  }else{
+			   tabList[i].className = "normal"; 
+			   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+			  }
+	} 
+}
+</script>
+
+<div class="zx_bg2 cl">
+	<div class="zx_con">
+        <div class="zx_bg2tit"><img alt="" src="{IMG_PATH}zhuangxiu/zx_bg2tit.png" /></div>
+        <div class="zx_bg2con">
+        	<div class="zx_bg2sub1 zx_text_sj">
+            公司总部提供“整店输出”服务体系，为加盟商提供装修支持，专人专店提供施工和设计服务，帮您节约时间和费用。</span>
+            </div>
+           
+            <div class="zx_bg2sub2 zx_text_sj">
+          千店一面，坚持品牌化输出，从店外到店内装修风格统一化。并通过完善的施工体系，可节省装修成本！
+            </div>     
+               
+            <div class="zx_bg2sub3 zx_text_sj">
+推出三个装修标准，根据加盟商投资金额不同，品牌一样、风格统一，选择适合自己的投资规模。豪华版、标准版、经济版任您选择。
+            </div>
+            
+            <div class="zx_bg2sub4 zx_text_sj"> 施工监理和空间设计师为您提供服务，全程把控价格、把控工期、核实材料等，提供技术性指导，为您节约费用。
+            </div>
+            
+            <div class="zx_bg2sub5 zx_text_sj">   爱亲服务热线，客服人员随时为您提供指导方案，帮您解决各种开店问题。
+            </div>
+            
+            <div class="zx_bg2sub6 zx_text_sj"> 爱亲母婴于2015年获得国家商务部特许经营备案，安全可靠，法律维权，让您无后顾之忧。
+            </div>
+        </div>
+    </div>
+</div>  
+
+<div class="zx_bg3 cl">
+	<div class="zx_con">
+        <div class="zx_bg3tit"><img alt="" src="{IMG_PATH}zhuangxiu/zx_bg3tit.png" /></div>
+		<div class="zx_bg3con">
+    		<img alt="" src="{IMG_PATH}zhuangxiu/zx_bg3con.png" />
+    	</div>
+	</div>
+</div>  
+
+
+
+
+
+<div class="zx_bg4 cl">
+	<div class="zx_con4">
+        <div class="zx_bg4con">
+            <div class="zx_bg4sub1 zx_text_sj">爱亲母婴施工监理提供专业服务，为您核实整体报价和项目，防止高价和0增项，合理控制装修成本，帮您杜绝增项和高价的烦恼，避免造成费用浪费。
+            </div>
+            <div class="zx_bg4sub2 zx_text_sj">加盟爱亲母婴即享，专人专店服务支持。
+    专业的SI设计师提供平面图、施工图、效果图等20张图纸，让您第一时间看见店铺形象。</div>
+    		<div class="zx_bg4sub5">装修开始后施工监理到店量尺、施工交底、装修核价、材料核实以及后期实时监控等专业服务，让您更省时、更准确完成店面装修。
+            </div>        
+            <div class="zx_bg4sub3 zx_text_sj">爱亲母婴提供材料使用标准，施工监理协助选材，保证材料质量，健康环保，全面避免施工隐患及质量问题。为您分忧解难，不留隐患。
+            </div>  
+            <div class="zx_bg4sub4 zx_text_sj">为保证形象统一化，突出自身品牌化特色，保证质优价廉的商品，爱亲母婴以更低成本提供定制化商品，增加消费者对品牌的识别性，发挥品牌效应。
+            </div>  		
+    </div>
+	</div>
+</div>
+</div>
+{template "content","footer"}
+</body>
+</html>

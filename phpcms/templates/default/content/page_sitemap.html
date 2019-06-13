@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站地图-爱亲母婴</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}global.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}sub_2.css" rel="stylesheet" type="text/css" />
+<script src="{JS_PATH}jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.soChange-min.js" type="text/javascript"></script>
+<script src="{JS_PATH}jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.mas.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{JS_PATH}iepng.js"></script>
+<![endif]-->
+{if $catid==69}
+<link href="{CSS_PATH}carousel_a.css" rel="stylesheet" type="text/css" />
+{else}
+<link href="{CSS_PATH}carousel_b.css" rel="stylesheet" type="text/css" />
+{/if}
+<script type="text/javascript" src="{JS_PATH}jcarousellite_1.0.1.min.js"></script>
+<script src="{JS_PATH}jquery.mousewheel.min.js" type="text/javascript"></script>
+{if $catid==68 or $catid==70 or $catid==45}
+<script src="{JS_PATH}aiqin_script.js" type="text/javascript"></script>
+{/if}
+{if $catid==68 or $catid==70}
+<script src="{JS_PATH}swfobject.js" type="text/javascript"></script>
+{/if}
+</head>
+<body>
+{template "content","header"}
+	<div class="banner">
+		{php $pid = $CATEGORYS[$CAT[parentid]][parentid]; $pidcont = $CATEGORYS[$CAT[parentid]][parentid]; if ($pid==0) $pid=$CAT[parentid];}
+        <div id="galleryMedia"><div class="img"><a href="#1"><img src="{IMG_PATH}banner_{$catid}.jpg" alt="{$CATEGORYS[$catid][catname]}" /></a></div></div>
+    </div>
+	<div class="main">
+
+		 <div class="ditu_main">
+		
+			{pc:content action="category" catid="0" num="10" siteid="$siteid" order="listorder ASC"}
+			<h2><a href="{siteurl($siteid)}">首页</a>
+			<div class="ditu_cl">		
+				{loop $data $r}
+				<h2 class="main_cat"><a href="{$r[url]}">{$r[catname]}</a></h2>
+					{pc:content action="category" catid="$r[catid]" num="15" siteid="$siteid" order="listorder ASC"}
+						<ul class="site_lm">
+						{loop $data $v}
+							<li><a href="{$v[url]}">{$v[catname]}</a></li>
+						{/loop}
+						</ul>
+					{/pc}
+				{/loop}
+				{/pc}
+             	<h2>
+<!--              		<a href="/jiameng/">母婴店加盟</a>
+                	<ul class="site_lm">
+                        <li><a href="/jiameng/zhunbei/1.html">开店准备</a></li>
+                        <li><a href="/jiameng/feiyong/1.html">投资费用</a></li>
+                        <li><a href="/jiameng/jinhuo/1.html">进货渠道</a></li>
+                        <li><a href="/jiameng/jiqiao/1.html">开店技巧</a></li>
+                        <li><a href="/jiameng/zhuangxiu/1.html">装修设计</a></li>
+                        <li><a href="/jiameng/jingying/1.html">经营技巧</a></li>
+                        <li><a href="/jiameng/jiameng/1.html">母婴店加盟</a></li>
+                        <li><a href="/jiameng/xiangmu/1.html">母婴店项目</a></li>
+                        <li><a href="/jiameng/lirun/1.html">母婴店利润</a></li>
+                        <li><a href="/jiameng/qianjing/1.html">母婴店前景</a></li>
+                    </ul> -->
+                
+            </div>
+		</div>
+
+    </div>	
+{template "content","footer"}
+<script type="text/javascript">
+$(function(){
+	$(".protitle").click(function(){
+		$(this).next(".propic").toggle();
+	});
+});
+</script>
+
+<script type="text/javascript">
+$(function(){	
+	for(var i=0;i<$(".site_lm").length;i++)
+	{
+		$(".main_cat").eq(i).find("a").attr("href",$(".site_lm").eq(i).find("li a").attr("href"));
+	}
+});
+</script>
+
+</body>
+</html>
